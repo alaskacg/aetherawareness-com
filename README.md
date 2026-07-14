@@ -1,59 +1,61 @@
 # Aether Awareness — launch site
 
-Marketing + signup site for **Aether Awareness**: a private, persistent, proactive AI
-with three tiers (Free / Standard / Premium). Static, zero-build, deploys anywhere.
+Marketing + signup site for **[Aether Awareness](https://aetherawareness.com)**: private,
+single-tenant AI instances — three companions with persistent memory, owned identity, and
+governed autonomy, in three editions (Companion / Team / Governance). Static, zero-build,
+self-contained (no external requests, no trackers), served by GitHub Pages.
 
 ```
 aetherawareness-com/
-├── index.html          # the page (SEO + Open Graph for the X launch card)
-├── site.config.js      # ← EDIT THIS: prices, Stripe links, signup endpoint
-├── css/style.css       # committed dark "signal intelligence" theme
+├── index.html          # the page: manifesto, capabilities, editions, FAQ
+├── terms.html          # Terms of Service
+├── privacy.html        # Privacy Policy
+├── site.config.js      # ← EDIT THIS: prices, checkout links, signup endpoint
+├── css/style.css       # dark "signal intelligence" theme
 ├── js/main.js          # hero field, pricing render, signup handling
 ├── assets/             # favicon.svg, og-card (social preview)
+├── CNAME               # custom domain for GitHub Pages
 └── marketing/
     └── video-scripts.md  # 3 launch video scripts (90–120s)
 ```
 
-## Before launch — the two things to set
+## Editing
 
-Everything you'd change lives in **`site.config.js`**:
+Everything you'd routinely change lives in **`site.config.js`**:
 
-1. **Prices** — `tiers[].price` are placeholders (`$19`, `$49`). Set your real numbers.
-2. **Checkout links** — `tiers[].checkout` currently point at the existing Stripe
-   pay-what-you-want link. Swap for your fixed recurring Stripe Checkout / Payment Link
-   per tier. (These map to the subscriber gateway tiers `free` / `standard` / `premium`.)
-3. **Signup destination** — `signupEndpoint`:
-   - Leave `""` for **launch-capture mode**: emails are stored in `localStorage` and a
-     prefilled mail to `contactEmail` opens, so no signup is ever lost pre-backend.
-   - Or set it to a POST endpoint (Formspree, a Supabase Edge Function, or the subscriber
-     gateway's provisioning webhook) that accepts `{ "email": "..." }`.
+1. **Prices** — mirror the product catalog: Companion **$39.95/mo · $399/yr**, Team
+   **$59.95/mo · $599/yr**, Governance **$499.95/mo · $4,999/yr**.
+2. **Checkout** — while the billing host is pre-launch every tier uses `action:"signup"`
+   (email capture; no lead is lost). When checkout goes live, set `action:"checkout"` and
+   `checkout:"https://subscribe.aetherawareness.com/subscribe"` per tier.
+3. **Signup destination** — `signupEndpoint`: leave `""` for launch-capture mode
+   (localStorage + prefilled mail to `contactEmail`), or point it at any POST endpoint
+   that accepts `{ "email": "..." }`.
 
 ## Run locally
 
 ```bash
-cd aetherawareness-com
-python3 -m http.server 4310
-# open http://localhost:4310
+python3 -m http.server 4310   # open http://localhost:4310
 ```
 
 ## Deploy
 
-It's pure static files — host on any of:
-- **Cloudflare Pages / GitHub Pages / Netlify** — point at this repo, build command: none,
-  output dir: `/` (root).
-- Drop behind the same Cloudflare tunnel you use for the app.
-
-Add the custom domain (`aetherawareness.com`) in your host's dashboard, or commit a
-`CNAME` file with `aetherawareness.com` for GitHub Pages.
+Pushed `main` deploys automatically via GitHub Pages (custom domain in `CNAME`,
+DNS A/AAAA records at the registrar point to GitHub Pages).
 
 ## Social card
 
-`index.html` references `assets/og-card.png` (1200×630) for the X/Twitter/Open Graph
-preview. Regenerate it from `assets/og-card.html` if you tweak branding
-(open it and screenshot at 1200×630, or use any HTML-to-image tool).
+`assets/og-card.png` (1200×630) is rendered from `assets/og-card.html`:
+
+```bash
+google-chrome --headless --disable-gpu --window-size=1200,630 \
+  --screenshot=assets/og-card.png "file://$PWD/assets/og-card.html"
+```
 
 ## Honesty guardrails (keep these true in all copy)
 
-The product is a **private, remembering, proactive assistant**. Claims stay to: persistent
-memory (Continuum), privacy/isolation (never sold, never trains other models), proactivity,
-personas, and real frontier models. Do **not** claim it monitors devices or reads accounts.
+Claims stay to what the product does: persistent memory that survives sessions and model
+swaps, single-tenant isolation (never pooled, never trained on), personalized agent trios
+("souls"), per-edition capability molds (Companion: no file/shell access; Team: reversible
+workspace jail; Governance: audit + SSO-ready), bring-your-own-model, cancel-preserves-data.
+Do **not** claim device monitoring, account reading, uptime guarantees, or romance.
