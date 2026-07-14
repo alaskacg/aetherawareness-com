@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+  *{margin:0;box-sizing:border-box}
+  body{width:1200px;height:630px;overflow:hidden;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:radial-gradient(1200px 700px at 78% 18%,#0e2b2a 0%,#080d15 45%,#05070c 100%);
+    color:#d6e4ee;position:relative}
+  .grid{position:absolute;inset:0;opacity:.35;
+    background-image:linear-gradient(rgba(53,230,200,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(53,230,200,.10) 1px,transparent 1px);
+    background-size:48px 48px}
+  .rings{position:absolute;right:-120px;top:-120px;width:620px;height:620px}
+  .wrap{position:relative;z-index:2;padding:74px 80px;height:100%;display:flex;flex-direction:column;justify-content:center}
+  .eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.28em;text-transform:uppercase;
+    color:#35e6c8;font-size:22px;margin-bottom:26px}
+  h1{font-size:76px;line-height:1.05;font-weight:800;letter-spacing:-.02em;max-width:16ch}
+  .grad{background:linear-gradient(100deg,#35e6c8,#8ea2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{margin-top:28px;font-size:30px;color:#9fb4c2;max-width:26ch;line-height:1.4}
+  .brand{position:absolute;bottom:56px;left:80px;display:flex;align-items:center;gap:16px;font-size:30px;font-weight:800;letter-spacing:.01em}
+  .url{position:absolute;bottom:60px;right:80px;font-family:ui-monospace,Menlo,monospace;color:#35e6c8;font-size:26px;letter-spacing:.04em}
+</style></head><body>
+  <div class="grid"></div>
+  <svg class="rings" viewBox="0 0 620 620" fill="none">
+    <circle cx="310" cy="310" r="70" fill="#35e6c8" opacity=".9"/>
+    <circle cx="310" cy="310" r="150" stroke="#35e6c8" stroke-width="2" opacity=".6"/>
+    <circle cx="310" cy="310" r="240" stroke="#35e6c8" stroke-width="2" opacity=".33"/>
+    <circle cx="310" cy="310" r="310" stroke="#8ea2ff" stroke-width="2" opacity=".18"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">Private · Persistent · Proactive</div>
+    <h1>The AI that <span class="grad">remembers you</span> — and works a step ahead.</h1>
+    <p>Private by design. It never forgets you.</p>
+  </div>
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#35e6c8" stroke-width="1.6"><circle cx="12" cy="12" r="2.5" fill="#35e6c8" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10" opacity=".5"/></svg>
+    Aether Awareness
+  </div>
+  <div class="url">aetherawareness.com</div>
+</body></html>
