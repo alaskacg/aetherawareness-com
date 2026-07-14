@@ -134,6 +134,34 @@ h1,h2,h3 { line-height:1.12; text-wrap:balance; font-weight:800; letter-spacing:
 .signup .msg.ok { color:var(--signal); }
 .signup .msg.err { color:#ff8095; }
 
+/* ---------- manifesto ---------- */
+.manifesto p { color:var(--ink-dim); font-size:1.04rem; margin-bottom:22px; }
+.manifesto p b, .manifesto p em { color:var(--ink); }
+.manifesto .pull { margin:34px 0; padding:26px 30px; border-left:3px solid var(--signal);
+  background:linear-gradient(90deg,rgba(53,230,200,.07),transparent 70%);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:clamp(1.25rem,2.6vw,1.6rem); font-weight:750; line-height:1.4; color:var(--ink); }
+
+/* ---------- problems, fixed ---------- */
+.fixes { display:grid; gap:12px; }
+.fix { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line);
+  border-radius:var(--radius); overflow:hidden; }
+.fix .was, .fix .now { padding:16px 20px; font-size:.93rem; }
+.fix .was { color:var(--muted); background:var(--ground-2); text-decoration:line-through;
+  text-decoration-color:rgba(255,128,149,.5); text-decoration-thickness:1px; }
+.fix .now { color:var(--ink); background:var(--panel); position:relative; padding-left:34px; }
+.fix .now::before { content:"→"; position:absolute; left:14px; color:var(--signal); font-weight:700; }
+@media(max-width:640px){ .fix{ grid-template-columns:1fr; } }
+
+/* ---------- legal pages ---------- */
+.legal { max-width:760px; margin:0 auto; padding:64px 24px 80px; }
+.legal h1 { font-size:clamp(1.7rem,4vw,2.4rem); margin-bottom:6px; }
+.legal .updated { font-family:var(--mono); font-size:.76rem; color:var(--muted); margin-bottom:34px; }
+.legal h2 { font-size:1.2rem; margin:30px 0 10px; }
+.legal p, .legal li { color:var(--ink-dim); font-size:.97rem; margin-bottom:12px; }
+.legal ul { padding-left:22px; margin-bottom:14px; }
+.legal a.back { font-family:var(--mono); font-size:.8rem; }
+
 /* ---------- footer ---------- */
 footer { padding:52px 0 40px; color:var(--muted); font-size:.86rem; }
 .foot-inner { display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; align-items:center; }
