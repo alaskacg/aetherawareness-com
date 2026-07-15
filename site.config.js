@@ -20,7 +20,7 @@ window.AETHER_CONFIG = {
   //    email to contactEmail so no signup is ever lost).
   //  • Or set a Formspree/Supabase/gateway URL that accepts POST {email}.
   signupEndpoint: "",
-  contactEmail: "hello@aetherawareness.com",
+  contactEmail: "admin@aetherawareness.com",
 
   // The three editions. Names match checkout exactly (Companion/Team/
   // Governance); Signal/Operator/Sovereign are the thematic badges.

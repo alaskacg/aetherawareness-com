@@ -84,7 +84,7 @@
     msg.innerHTML = "You're on the list! To confirm, we've opened a quick email — just hit send.";
     var subj = encodeURIComponent("Aether Awareness — early access");
     var body = encodeURIComponent("I'd like early access. My email: " + email);
-    window.location.href = "mailto:" + (CFG.contactEmail || "hello@aetherawareness.com") + "?subject=" + subj + "&body=" + body;
+    window.location.href = "mailto:" + (CFG.contactEmail || "admin@aetherawareness.com") + "?subject=" + subj + "&body=" + body;
   }
 
   /* ---- hero signal field (ambient, reduced-motion aware) ---- */
