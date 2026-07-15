@@ -22,6 +22,16 @@
 
 <link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
+<!-- Reveal-on-scroll only arms when JS is present, so no-JS/failed-JS users still
+     see every section. A failsafe timer reveals everything if the observer stalls. -->
+<script>
+  document.documentElement.className += " js";
+  addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      document.querySelectorAll(".rev:not(.in)").forEach(function (e) { e.classList.add("in"); });
+    }, 2500);
+  });
+</script>
 </head>
 <body>
 
@@ -48,18 +58,28 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <canvas id="field" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <div class="eyebrow">Persistent · Sovereign · Governed</div>
-    <h1>The first AI that's <span class="grad">actually yours.</span></h1>
-    <p class="lede">Aether Awareness gives agentic AI the three things it's been missing — <b>memory that
-      persists</b>, <b>identity you own</b>, and <b>autonomy with boundaries</b> — on a private, single-tenant
-      instance nobody else touches. Three companions, shaped to you before the first hello, that remember
-      everything and answer to no one but you.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="#pricing">Request early access</a>
-      <a class="btn btn-ghost btn-lg" href="#manifesto">Read the manifesto</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Persistent · Sovereign · Governed</div>
+      <h1>The first AI that's <span class="grad">actually yours.</span></h1>
+      <p class="lede">Aether Awareness gives agentic AI the three things it's been missing — <b>memory that
+        persists</b>, <b>identity you own</b>, and <b>autonomy with boundaries</b> — on a private, single-tenant
+        instance nobody else touches. Three companions, shaped to you before the first hello, that remember
+        everything and answer to no one but you.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#pricing">Request early access</a>
+        <a class="btn btn-ghost btn-lg" href="#live">See it alive</a>
+      </div>
+      <div class="assurance">◈ Single-tenant by architecture · <b>never</b> pooled, <b>never</b> trained on · cancel anytime — memory preserved</div>
     </div>
-    <div class="assurance">◈ Single-tenant by architecture · <b>never</b> pooled, <b>never</b> trained on · cancel anytime — memory preserved</div>
+    <div class="hero-shot rev">
+      <div class="shot-frame">
+        <div class="shot-bar"><i></i><i></i><i></i><span>your-aether.example — Construct</span></div>
+        <img src="assets/media/construct-tools.webp" width="1600" height="1000"
+             alt="The Construct console: Mira recalls the owner's plans from memory, then writes a prep timeline to their to-do board through the tool loop" loading="eager" decoding="async">
+      </div>
+      <div class="shot-caption">Mira, remembering Saturday — then writing the plan to your board. Captured from a live instance, unedited.</div>
+    </div>
   </div>
 </header>
 
@@ -125,8 +145,44 @@
   </div>
 </section>
 
+<!-- ============ SEE IT ALIVE ============ -->
+<section class="section" id="live" style="background:var(--ground-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head rev">
+      <div class="eyebrow">See it alive</div>
+      <h2>Not a mockup. A running instance.</h2>
+      <p>Everything below was captured from a live Aether Awareness instance — the same software a
+        subscriber claims. No compositing, no concept art.</p>
+    </div>
+    <div class="live-grid">
+      <figure class="live-main rev">
+        <div class="shot-frame">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Construct — a real reply, streaming</span></div>
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/media/chat-poster.webp"
+                 width="1280" height="800" aria-label="Screen recording: a message is sent to Mira and her reply streams in live, ending with a to-do tool call rendered in the chat">
+            <source src="assets/media/chat-live.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>“Put it on my board.” — sent, streamed, and written through the real tool loop.
+          The <b>todo_write</b> call renders right in the chat: power with receipts.</figcaption>
+      </figure>
+      <figure class="live-side rev">
+        <div class="shot-frame">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Living Presence</span></div>
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/media/presence-poster.webp"
+                 width="1280" height="800" aria-label="Screen recording: the Living Presence face — a constellation of particles forming a calm face that breathes and drifts">
+            <source src="assets/media/presence-live.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>The Living Presence — your companion as a constellation, present even when you're
+          not typing. Ambient, calm, and local.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CAPABILITIES ============ -->
-<section class="section" id="capabilities" style="background:var(--ground-2);border-block:1px solid var(--line)">
+<section class="section" id="capabilities">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">What we've built</div>
@@ -188,6 +244,70 @@
   </div>
 </section>
 
+<!-- ============ PROOF, NOT PROMISES ============ -->
+<section class="section" id="proof" style="background:var(--ground-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head rev">
+      <div class="eyebrow">Proof, not promises</div>
+      <h2>Sovereignty you can look at.</h2>
+    </div>
+
+    <div class="feature-row rev">
+      <div class="feature-media">
+        <div class="shot-frame">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Awareness — system console</span></div>
+          <img src="assets/media/awareness.webp" width="1600" height="1000" loading="lazy" decoding="async"
+               alt="The Awareness console: brain online with its endpoint, durable memory stored at memory/MEMORY.md, the harness state, and the three minds — with the note 'host metrics are local only, nothing leaves this machine'">
+        </div>
+      </div>
+      <div class="feature-copy">
+        <h3>Look under the hood — it's your hood.</h3>
+        <p>The Awareness console shows exactly what your instance is: which brain it's running, where your
+          memory lives (<span class="mono">memory/MEMORY.md</span> — a file, on your box), what the harness
+          is doing, and your three minds. The host panel says it plainly: <em>“nothing leaves this machine
+          for this view.”</em></p>
+        <p>Most AI products ask for trust. This one shows receipts.</p>
+      </div>
+    </div>
+
+    <div class="feature-row flip rev">
+      <div class="feature-media">
+        <div class="shot-frame slim">
+          <img src="assets/media/login-claim.webp" width="840" height="1240" loading="lazy" decoding="async"
+               alt="The Claim your Aether screen: choose your password, confirm it, and a note that the one-time link makes you the owner and stops working the moment it's used">
+        </div>
+      </div>
+      <div class="feature-copy">
+        <h3>Ownership begins at the front door.</h3>
+        <p>You don't get a temp password from support. You get a one-time <b>claim link</b>: open it, choose
+          the password only you will ever know, and the instance is yours — the link dies the moment it's
+          used. Even we can't sign in as you afterward.</p>
+        <p>That's the whole philosophy in one screen: <b>the keys are handed over, not held for you.</b></p>
+      </div>
+    </div>
+
+    <div class="gallery rev">
+      <figure class="tile">
+        <img src="assets/media/construct-memory.webp" width="1600" height="1000" loading="lazy" decoding="async"
+             alt="Construct chat: asked what the owner said about their sister's Saturday visit, Mira recalls the arrival time, the plan to cook at home, and why">
+        <figcaption><b>Memory, mid-conversation.</b> “What did I tell you?” — answered with the details
+          <em>and</em> the reasons, days later.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="assets/media/presence.webp" width="1600" height="1000" loading="lazy" decoding="async"
+             alt="The Living Presence surface: a face drawn as a constellation of golden particles above a composer that reads 'Speak to the presence'">
+        <figcaption><b>The Living Presence.</b> A companion you can sit with — not a text box you query.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="assets/media/subscribe.webp" width="1600" height="1000" loading="lazy" decoding="async"
+             alt="The subscribe surface on the instance: Companion $39.95, Team $59.95, Governance $499.95 with a monthly/annual toggle and a manage-billing link">
+        <figcaption><b>Honest checkout, on your instance.</b> The same three editions this page promises —
+          with self-serve billing via Stripe.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROBLEMS, FIXED ============ -->
 <section class="section" id="fixed">
   <div class="wrap" style="max-width:900px">
@@ -205,6 +325,16 @@
     </div>
   </div>
 </section>
+
+<!-- ============ STAT BAND ============ -->
+<div class="statband">
+  <div class="wrap statband-inner">
+    <div class="stat"><div class="n">1</div><div class="l">tenant per instance —<br>never pooled</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">minds, one memory,<br>one loyalty</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">trackers on this site —<br>view source</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">of your memory stays<br>when you cancel</div></div>
+  </div>
+</div>
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="section" id="how" style="background:var(--ground-2);border-block:1px solid var(--line)">

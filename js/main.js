@@ -87,6 +87,40 @@
     window.location.href = "mailto:" + (CFG.contactEmail || "admin@aetherawareness.com") + "?subject=" + subj + "&body=" + body;
   }
 
+  /* ---- scroll reveal (auto-attach; respects reduced motion) ---- */
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var els = document.querySelectorAll(
+      ".rev, .section-head, .card, .tier, .persona, .fix, .step, .stat, details, .signup"
+    );
+    els.forEach(function (el) { el.classList.add("rev"); });
+    if (reduce || !("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          // small stagger based on position among visible siblings
+          var d = Math.min(240, (Array.prototype.indexOf.call(
+            en.target.parentNode.children, en.target) % 6) * 60);
+          en.target.style.transitionDelay = d + "ms";
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---- keep looping videos honest with reduced motion ---- */
+  (function () {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls", "controls");
+    });
+  })();
+
   /* ---- hero signal field (ambient, reduced-motion aware) ---- */
   var c = document.getElementById("field");
   if (c && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
