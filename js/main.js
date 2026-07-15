@@ -113,12 +113,46 @@
     els.forEach(function (el) { io.observe(el); });
   })();
 
-  /* ---- keep looping videos honest with reduced motion ---- */
+  /* ---- hero vignette: type the last reply when it scrolls into view ---- */
   (function () {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    document.querySelectorAll("video[autoplay]").forEach(function (v) {
-      v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls", "controls");
-    });
+    var el = document.getElementById("typed");
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;   // full text already in markup
+    var text = el.getAttribute("data-text") || el.textContent;
+    var started = false;
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; }) || started) return;
+      started = true; io.disconnect();
+      el.textContent = "";
+      var caret = document.createElement("span"); caret.className = "caret";
+      el.appendChild(caret);
+      var i = 0;
+      (function tick() {
+        if (i <= text.length) {
+          el.firstChild ? el.insertBefore(document.createTextNode(text.charAt(i)), caret)
+                        : el.appendChild(document.createTextNode(text.charAt(i)));
+          i++;
+          setTimeout(tick, 16 + Math.random() * 26);
+        } else {
+          setTimeout(function () { caret.remove(); }, 1400);
+        }
+      })();
+    }, { threshold: 0.6 });
+    io.observe(el);
+  })();
+
+  /* ---- architecture diagram: cycle the swappable brain label ---- */
+  (function () {
+    var box = document.getElementById("brain-swap");
+    if (!box || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var opts = box.querySelectorAll("span");
+    if (opts.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+      opts[i].classList.remove("on");
+      i = (i + 1) % opts.length;
+      opts[i].classList.add("on");
+    }, 2600);
   })();
 
   /* ---- hero signal field (ambient, reduced-motion aware) ---- */

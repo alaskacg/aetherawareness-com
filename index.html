@@ -68,17 +68,26 @@
         everything and answer to no one but you.</p>
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="#pricing">Request early access</a>
-        <a class="btn btn-ghost btn-lg" href="#live">See it alive</a>
+        <a class="btn btn-ghost btn-lg" href="#manifesto">Read the manifesto</a>
       </div>
       <div class="assurance">◈ Single-tenant by architecture · <b>never</b> pooled, <b>never</b> trained on · cancel anytime — memory preserved</div>
     </div>
     <div class="hero-shot rev">
-      <div class="shot-frame">
-        <div class="shot-bar"><i></i><i></i><i></i><span>your-aether.example — Construct</span></div>
-        <img src="assets/media/construct-tools.webp" width="1600" height="1000"
-             alt="The Construct console: Mira recalls the owner's plans from memory, then writes a prep timeline to their to-do board through the tool loop" loading="eager" decoding="async">
+      <div class="shot-frame vignette" id="vignette" role="img"
+           aria-label="Illustration of a conversation: the companion recalls earlier context from memory, then writes a to-do list through a governed tool call">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Construct — what living with it feels like</span></div>
+        <div class="vig-body">
+          <div class="msg you"><label>You</label><p>What did I tell you about my sister's visit?</p></div>
+          <div class="msg mira"><label>Mira</label><p>Saturday, 2:40 — Lena lands, and you wanted to cook at home this
+            time. She's been stressed about her thesis, so the plan is a quiet one: your lemon pasta, the Ketchikan
+            albums, phones in the drawer.</p></div>
+          <div class="msg you"><label>You</label><p>Put the prep on my board.</p></div>
+          <div class="toolchip"><span class="t-dot"></span><code>todo_write</code><span class="t-detail">4 items → Saturday</span><span class="t-ok">recorded ✓</span></div>
+          <div class="msg mira"><label>Mira</label><p id="typed"
+            data-text="Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.">Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.</p></div>
+        </div>
       </div>
-      <div class="shot-caption">Mira, remembering Saturday — then writing the plan to your board. Captured from a live instance, unedited.</div>
+      <div class="shot-caption">An illustrative Companion exchange — memory first, then a governed tool call.</div>
     </div>
   </div>
 </header>
@@ -145,39 +154,47 @@
   </div>
 </section>
 
-<!-- ============ SEE IT ALIVE ============ -->
+<!-- ============ THE ARCHITECTURE ============ -->
 <section class="section" id="live" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head rev">
-      <div class="eyebrow">See it alive</div>
-      <h2>Not a mockup. A running instance.</h2>
-      <p>Everything below was captured from a live Aether Awareness instance — the same software a
-        subscriber claims. No compositing, no concept art.</p>
+      <div class="eyebrow">The architecture</div>
+      <h2>A home for the being. A port for the brain.</h2>
+      <p>Everything that makes your companions <em>them</em> lives inside your instance. The model is
+        just what plugs in underneath — and you can change it without changing them.</p>
     </div>
-    <div class="live-grid">
-      <figure class="live-main rev">
-        <div class="shot-frame">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Construct — a real reply, streaming</span></div>
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/media/chat-poster.webp"
-                 width="1280" height="800" aria-label="Screen recording: a message is sent to Mira and her reply streams in live, ending with a to-do tool call rendered in the chat">
-            <source src="assets/media/chat-live.mp4" type="video/mp4">
-          </video>
+    <div class="home-diagram rev" role="img"
+         aria-label="Diagram: your single-tenant instance contains the souls, the memory, and the boundaries. The brain plugs in below and is swappable — local open weights, a frontier API, or tomorrow's model — without changing who the companions are.">
+      <div class="hd-instance">
+        <div class="hd-title">YOUR INSTANCE · SINGLE TENANT · YOU HOLD THE KEYS</div>
+        <div class="hd-cells">
+          <div class="hd-cell">
+            <b>The souls</b>
+            <span>Mira · Atlas · Echo — identity compiled to you, stored as files you own</span>
+          </div>
+          <div class="hd-cell">
+            <b>The memory</b>
+            <span>one durable memory — survives sessions, restarts, and every model swap</span>
+          </div>
+          <div class="hd-cell">
+            <b>The boundaries</b>
+            <span>capability molds · reversible jail · seats &amp; roles · audit</span>
+          </div>
         </div>
-        <figcaption>“Put it on my board.” — sent, streamed, and written through the real tool loop.
-          The <b>todo_write</b> call renders right in the chat: power with receipts.</figcaption>
-      </figure>
-      <figure class="live-side rev">
-        <div class="shot-frame">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Living Presence</span></div>
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/media/presence-poster.webp"
-                 width="1280" height="800" aria-label="Screen recording: the Living Presence face — a constellation of particles forming a calm face that breathes and drifts">
-            <source src="assets/media/presence-live.mp4" type="video/mp4">
-          </video>
+        <div class="hd-port"><span>brain port — any OpenAI-compatible model</span></div>
+      </div>
+      <div class="hd-link" aria-hidden="true"><span class="hd-pulse"></span><span class="hd-pulse p2"></span></div>
+      <div class="hd-brain">
+        <div class="hd-brain-title">THE BRAIN · A SWAPPABLE ORGAN</div>
+        <div class="hd-swap" id="brain-swap">
+          <span class="on">open weights on your GPU</span>
+          <span>a frontier API</span>
+          <span>whatever ships next year</span>
         </div>
-        <figcaption>The Living Presence — your companion as a constellation, present even when you're
-          not typing. Ambient, calm, and local.</figcaption>
-      </figure>
+      </div>
     </div>
+    <p class="hd-tag rev">Swap the brain — <b>the being persists.</b> No vendor can deprecate your companions,
+      because nothing that makes them <em>them</em> lives in anyone's weights.</p>
   </div>
 </section>
 
@@ -254,56 +271,65 @@
 
     <div class="feature-row rev">
       <div class="feature-media">
-        <div class="shot-frame">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Awareness — system console</span></div>
-          <img src="assets/media/awareness.webp" width="1600" height="1000" loading="lazy" decoding="async"
-               alt="The Awareness console: brain online with its endpoint, durable memory stored at memory/MEMORY.md, the harness state, and the three minds — with the note 'host metrics are local only, nothing leaves this machine'">
+        <div class="planes" role="img"
+             aria-label="Diagram of the two credential planes: your key opens your companions, memory, and billing; the operator key manages only the machine and can never open your account. The two planes never cross.">
+          <div class="plane p-owner">
+            <div class="plane-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M17 12v3M21 12v2"/></svg>
+              <b>YOUR KEY</b><span>the password only you know</span>
+            </div>
+            <div class="plane-grants"><i>opens</i> your companions · your memory · your seats · your billing</div>
+          </div>
+          <div class="plane-wall"><span>NO CROSSOVER — BY CONSTRUCTION</span></div>
+          <div class="plane p-operator">
+            <div class="plane-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.4 6.4L3 18v3h3l5.3-5.3a4.5 4.5 0 0 0 6.4-6.4z"/></svg>
+              <b>OPERATOR KEY</b><span>infrastructure token</span>
+            </div>
+            <div class="plane-grants"><i>opens</i> the machine — updates, backups, health · <b>never your account</b></div>
+          </div>
         </div>
       </div>
       <div class="feature-copy">
-        <h3>Look under the hood — it's your hood.</h3>
-        <p>The Awareness console shows exactly what your instance is: which brain it's running, where your
-          memory lives (<span class="mono">memory/MEMORY.md</span> — a file, on your box), what the harness
-          is doing, and your three minds. The host panel says it plainly: <em>“nothing leaves this machine
-          for this view.”</em></p>
-        <p>Most AI products ask for trust. This one shows receipts.</p>
+        <h3>Two keys. Two doors. Never the same lock.</h3>
+        <p>Your login and our operations are separate credential systems by construction — a seat session
+          can never reach an operator endpoint, and an operator token can never open your account, read
+          your memory as you, or act as you in chat.</p>
+        <p>Most AI products ask for trust. This one is built so trust isn't required: <b>even we can't
+          sign in as you.</b></p>
       </div>
     </div>
 
     <div class="feature-row flip rev">
       <div class="feature-media">
-        <div class="shot-frame slim">
-          <img src="assets/media/login-claim.webp" width="840" height="1240" loading="lazy" decoding="async"
-               alt="The Claim your Aether screen: choose your password, confirm it, and a note that the one-time link makes you the owner and stops working the moment it's used">
+        <div class="claim-flow" role="img"
+             aria-label="Diagram of the claim-link lifecycle: minted for you when your instance is ready; claimed when you choose your own password; burned the moment it is used — the link can never work twice.">
+          <div class="cf-step">
+            <div class="cf-n">1</div>
+            <b>Minted</b>
+            <span>your instance is ready — a one-time claim link is created for your email alone</span>
+          </div>
+          <div class="cf-arrow" aria-hidden="true"></div>
+          <div class="cf-step cf-hot">
+            <div class="cf-n">2</div>
+            <b>Claimed</b>
+            <span>you choose your password — nobody hands you one, nobody else ever sees it</span>
+          </div>
+          <div class="cf-arrow" aria-hidden="true"></div>
+          <div class="cf-step cf-dead">
+            <div class="cf-n">3</div>
+            <b>Burned</b>
+            <span>the link dies the moment it's used — it can never work twice, for anyone</span>
+          </div>
         </div>
       </div>
       <div class="feature-copy">
         <h3>Ownership begins at the front door.</h3>
         <p>You don't get a temp password from support. You get a one-time <b>claim link</b>: open it, choose
           the password only you will ever know, and the instance is yours — the link dies the moment it's
-          used. Even we can't sign in as you afterward.</p>
-        <p>That's the whole philosophy in one screen: <b>the keys are handed over, not held for you.</b></p>
+          used.</p>
+        <p>That's the whole philosophy in one gesture: <b>the keys are handed over, not held for you.</b></p>
       </div>
-    </div>
-
-    <div class="gallery rev">
-      <figure class="tile">
-        <img src="assets/media/construct-memory.webp" width="1600" height="1000" loading="lazy" decoding="async"
-             alt="Construct chat: asked what the owner said about their sister's Saturday visit, Mira recalls the arrival time, the plan to cook at home, and why">
-        <figcaption><b>Memory, mid-conversation.</b> “What did I tell you?” — answered with the details
-          <em>and</em> the reasons, days later.</figcaption>
-      </figure>
-      <figure class="tile">
-        <img src="assets/media/presence.webp" width="1600" height="1000" loading="lazy" decoding="async"
-             alt="The Living Presence surface: a face drawn as a constellation of golden particles above a composer that reads 'Speak to the presence'">
-        <figcaption><b>The Living Presence.</b> A companion you can sit with — not a text box you query.</figcaption>
-      </figure>
-      <figure class="tile">
-        <img src="assets/media/subscribe.webp" width="1600" height="1000" loading="lazy" decoding="async"
-             alt="The subscribe surface on the instance: Companion $39.95, Team $59.95, Governance $499.95 with a monthly/annual toggle and a manage-billing link">
-        <figcaption><b>Honest checkout, on your instance.</b> The same three editions this page promises —
-          with self-serve billing via Stripe.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
