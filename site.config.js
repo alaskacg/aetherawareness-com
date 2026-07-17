@@ -23,7 +23,9 @@ window.AETHER_CONFIG = {
   contactEmail: "admin@aetherawareness.com",
 
   // The three editions. Names match checkout exactly (Companion/Team/
-  // Governance); Signal/Operator/Sovereign are the thematic badges.
+  // Governance); Signal/Colleague/Sovereign are the thematic badges.
+  // NOTE: "Operator" is reserved for a future restricted tier (contractors /
+  // cleared personnel) and must NEVER label a public edition.
   tiers: [
     {
       tierKey: "personal",
@@ -49,18 +51,18 @@ window.AETHER_CONFIG = {
     {
       tierKey: "coworker",
       name: "Team",
-      badge: "Operator",
+      badge: "Colleague",
       price: "$59.95",
       cadence: "/ month",
-      blurb: "A builder's crew on tap — lead, operator, analyst.",
+      blurb: "A custom co-worker for your business — synced to how your company runs.",
       model: "Private team instance · 5 seats with roles",
       features: [
-        "Sol, Cipher &amp; Sage — a working team, not a chatbot",
-        "Cipher runs shell &amp; edits files in a <strong>reversible workspace jail</strong>",
-        "Awareness dashboard: system + world signal, opt-in feeds",
+        "Sol, Cipher &amp; Sage — a working team of colleagues, not a chatbot",
+        "<strong>Learns your business</strong> at orientation — company, vocabulary, HR &amp; workflow — and stays synced",
+        "Hands-on with documents &amp; files in a <strong>reversible shared workspace</strong>",
+        "Awareness dashboard: your systems + world signal, opt-in feeds",
         "Owner / admin / member / viewer roles, shared memory, audit trail",
-        "Bring your own model — local GGUF or any frontier API",
-        "Annual: $599/yr (2 months free)",
+        "Professional workplace demeanor · SFW by design · Annual: $599/yr (2 months free)",
       ],
       cta: "Request your instance",
       action: "signup",
@@ -70,20 +72,20 @@ window.AETHER_CONFIG = {
     {
       tierKey: "corporate",
       name: "Governance",
-      badge: "Sovereign",
+      badge: "Sovereign · Coming Soon",
       price: "$499.95",
       cadence: "/ month",
-      blurb: "An executive intelligence layer, grounded in your documents.",
-      model: "Dedicated sovereign VM · 25 seats · SSO-ready",
+      blurb: "Coming soon — a sovereign executive intelligence layer on a dedicated private GPU instance, grounded in your documents.",
+      model: "Dedicated private GPU instance · 25 seats · SSO-ready",
       features: [
         "Sterling, Reeve &amp; Quinn — counsel grounded in YOUR documents",
         "Says “no signal” instead of inventing numbers",
         "Full RBAC + auditor role + tamper-evident audit log",
         "OIDC/SSO-ready (Google / Microsoft / Okta), password fallback",
-        "Dedicated VM, long context, priority support",
+        "Dedicated private GPU instance provisioned per customer — built for CEOs &amp; trading desks",
         "Annual: $4,999/yr (2 months free) · air-gap by application",
       ],
-      cta: "Talk to us",
+      cta: "Join the list",
       action: "signup",
       checkout: "",
       highlight: false,

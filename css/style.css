@@ -222,7 +222,7 @@ h1,h2,h3 { line-height:1.12; text-wrap:balance; font-weight:800; letter-spacing:
   text-transform:uppercase; margin-right:8px; }
 .p-owner { color:var(--signal); background:linear-gradient(180deg,rgba(53,230,200,.07),transparent); }
 .p-owner .plane-grants { color:var(--ink); }
-.p-operator { color:var(--peri); }
+.p-admin { color:var(--peri); }
 .plane-wall { position:relative; text-align:center; border-block:1px solid var(--line-2);
   background:repeating-linear-gradient(-45deg, transparent 0 10px, rgba(53,230,200,.06) 10px 20px); padding:8px 0; }
 .plane-wall span { font-family:var(--mono); font-size:.62rem; letter-spacing:.22em; color:var(--muted); }
