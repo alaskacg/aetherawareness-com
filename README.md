@@ -24,7 +24,7 @@ aetherawareness-com/
 Everything you'd routinely change lives in **`site.config.js`**:
 
 1. **Prices** — mirror the product catalog: Companion **$39.95/mo · $399/yr**, Team
-   **$59.95/mo · $599/yr**, Governance **$499.95/mo · $4,999/yr**.
+   **$39.95/mo · $399/yr**, Governance **$499.95/mo · $4,999/yr**.
 2. **Checkout** — while the billing host is pre-launch every tier uses `action:"signup"`
    (email capture; no lead is lost). When checkout goes live, set `action:"checkout"` and
    `checkout:"https://subscribe.aetherawareness.com/subscribe"` per tier.

@@ -5,7 +5,7 @@
    Nothing else needs to change. Loaded before js/main.js.
 
    Prices mirror the product catalog (aether-awareness/billing/plans.json):
-   Companion $39.95/mo · $399/yr — Team $59.95/mo · $599/yr —
+   Companion $39.95/mo · $399/yr — Team $39.95/mo · $399/yr —
    Governance $499.95/mo · $4,999/yr. Change them together.
 
    CHECKOUT: while the billing host is not live yet, every tier uses
@@ -52,7 +52,7 @@ window.AETHER_CONFIG = {
       tierKey: "coworker",
       name: "Team",
       badge: "Colleague",
-      price: "$59.95",
+      price: "$39.95",
       cadence: "/ month",
       blurb: "A custom co-worker for your business — synced to how your company runs.",
       model: "Private team instance · 5 seats with roles",
@@ -62,7 +62,8 @@ window.AETHER_CONFIG = {
         "Hands-on with documents &amp; files in a <strong>reversible shared workspace</strong>",
         "Awareness dashboard: your systems + world signal, opt-in feeds",
         "Owner / admin / member / viewer roles, shared memory, audit trail",
-        "Professional workplace demeanor · SFW by design · Annual: $599/yr (2 months free)",
+        "Prepared briefings — daily, weekly &amp; monthly, written by the colleague you choose",
+        "Professional workplace demeanor · SFW by design · Annual: $399/yr (2 months free)",
       ],
       cta: "Request your instance",
       action: "signup",
