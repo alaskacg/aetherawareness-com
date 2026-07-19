@@ -19,7 +19,7 @@ window.AETHER_CONFIG = {
   //  • Leave "" for launch-capture mode (stores locally + opens a prefilled
   //    email to contactEmail so no signup is ever lost).
   //  • Or set a Formspree/Supabase/gateway URL that accepts POST {email}.
-  signupEndpoint: "",
+  signupEndpoint: "https://uqfwufprawgqxmhrksxn.supabase.co/functions/v1/early-access",
   contactEmail: "admin@aetherawareness.com",
 
   // The three editions. Names match checkout exactly (Companion/Team/

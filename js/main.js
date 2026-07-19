@@ -70,7 +70,7 @@
     });
   }
   function done(msg, email) {
-    msg.className = "msg ok"; msg.textContent = "You're on the list. Check your inbox soon.";
+    msg.className = "msg ok"; msg.textContent = "You're on the list — we'll reach out to shape your instance.";
     try { form.reset(); } catch (e) {}
   }
   function fallback(msg, email) {

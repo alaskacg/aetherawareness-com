@@ -1,0 +1,5 @@
+Contact: mailto:admin@aetherawareness.com
+Expires: 2027-07-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://aetherawareness.com/.well-known/security.txt
+Policy: https://aetherawareness.com/privacy.html

@@ -18,7 +18,67 @@
 <meta name="twitter:title" content="Aether Awareness — AI with memory, identity, and a home you own">
 <meta name="twitter:description" content="Persistent memory. Owned identity. Governed autonomy. A private AI instance that answers to you alone.">
 <meta name="twitter:image" content="https://aetherawareness.com/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aether Awareness — persistent memory, owned identity, governed autonomy">
 <meta name="theme-color" content="#06090f">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aetherawareness.com/#org",
+      "name": "Aether Awareness",
+      "url": "https://aetherawareness.com/",
+      "logo": "https://aetherawareness.com/assets/og-card.png",
+      "email": "admin@aetherawareness.com",
+      "description": "Private, single-tenant AI instances: three companions with persistent memory, owned identity, and governed autonomy."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aetherawareness.com/#site",
+      "url": "https://aetherawareness.com/",
+      "name": "Aether Awareness",
+      "publisher": { "@id": "https://aetherawareness.com/#org" }
+    },
+    {
+      "@type": "Product",
+      "name": "Aether Awareness Companion",
+      "description": "A private, single-tenant AI instance for your personal life: Trinity, Jade & Zara shaped to you, permanent memory, daily briefing, presence, VR room, and health record. 1 seat.",
+      "brand": { "@id": "https://aetherawareness.com/#org" },
+      "url": "https://aetherawareness.com/#pricing",
+      "offers": [
+        { "@type": "Offer", "price": "39.95", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Monthly" },
+        { "@type": "Offer", "price": "399.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Annual" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Aether Awareness Team",
+      "description": "The same trio in professional demeanor: learns your business at orientation, prepared daily/weekly/monthly briefings, 5 seats with roles, shared memory, audit trail.",
+      "brand": { "@id": "https://aetherawareness.com/#org" },
+      "url": "https://aetherawareness.com/#pricing",
+      "offers": [
+        { "@type": "Offer", "price": "39.95", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Monthly" },
+        { "@type": "Offer", "price": "399.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Annual" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Aether Awareness Governance",
+      "description": "An executive intelligence layer grounded in your documents, with a dedicated private GPU model on demand, Company Briefing, 25 seats, full RBAC, and a tamper-evident audit log.",
+      "brand": { "@id": "https://aetherawareness.com/#org" },
+      "url": "https://aetherawareness.com/#pricing",
+      "offers": [
+        { "@type": "Offer", "price": "499.95", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Monthly" },
+        { "@type": "Offer", "price": "4999.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://aetherawareness.com/#pricing", "description": "Annual" }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
@@ -586,6 +646,54 @@
   </div>
 </footer>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly am I buying?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A private, single-tenant AI instance — your own running system, not a login on a shared one. It comes personalized with your trio of companions, persistent memory, and the surfaces to live with them (chat, presence, awareness). You claim it with a one-time link and set a password nobody else ever sees." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data really private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, and structurally so: one instance per customer means there is no shared pool for your data to leak into. Your memory and conversations are never sold and never used to train models. Administrative access to infrastructure is a separate credential system from your login — even we can't sign in as you. Cancel and your data is preserved for your return; ask and it's exported or permanently erased." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI models power it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Your choice — that's the point. Aether is model-agnostic: it runs on open-weight models on dedicated hardware or frontier models over an API, and you can switch without losing anything. Your companions' memory and character live outside the model, so swapping brains doesn't change who they are." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it access my files or computer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only inside one sealed folder. Every edition's hands-on colleague (Jade) can keep and edit real documents — but exclusively inside the instance's own workspace folder, with reversible, reported changes. Nothing else on your machine is reachable, and Companion never gets shell access at all. Capability is a configuration you can see, not a surprise." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I cancel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Chat suspends at the end of your billing period; nothing is deleted. Your memory, personalization, and history are archived for at least twelve months, and resubscribing restores everything exactly as you left it. You can also request a full export or permanent deletion at any time." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need my own AI model or API key?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every subscription includes hosted inference at fair-use capacity — your instance works on day one with nothing to configure. If you want more control, you can plug in your own API key or point it at open-weight models on your own GPU at any time, and on Governance a dedicated private GPU model spins up on demand with no keys to manage at all." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there really nothing else like this?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pieces of it exist across the industry — memory features, agent frameworks, character apps, dashboard tools. To our knowledge, nobody else ships the whole synthesis: compiled identities, permanent self-compacting memory, governed hands, briefings, presence and VR surfaces, team structure, and single-tenant ownership, working together out of the box. That integration — the months of orchestration and refinement you never have to learn — is the product." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a romantic AI companion?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. All editions are warm but SFW by design — friends and colleagues, not romantic or sexual partners, with that boundary compiled into their identities. We think the companionship people actually need is presence, memory, and honesty." }
+    }
+  ]
+}
+</script>
 <script src="site.config.js"></script>
 <script src="js/main.js"></script>
 </body>
