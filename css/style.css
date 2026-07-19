@@ -163,8 +163,8 @@ h1,h2,h3 { line-height:1.12; text-wrap:balance; font-weight:800; letter-spacing:
   line-height:1.6; color:var(--ink); background:var(--panel-2); margin:0; }
 .msg.you { justify-self:end; text-align:right; }
 .msg.you p { background:#0d1826; border-color:rgba(53,230,200,.22); }
-.msg.mira label { color:var(--signal-deep); }
-.msg.mira p { border-left:2px solid var(--signal); border-radius:4px 12px 12px 12px; }
+.msg.trinity label { color:var(--signal-deep); }
+.msg.trinity p { border-left:2px solid var(--signal); border-radius:4px 12px 12px 12px; }
 .toolchip { display:flex; align-items:center; gap:10px; border:1px dashed var(--line-2); border-radius:10px;
   padding:9px 14px; font-family:var(--mono); font-size:.72rem; color:var(--ink-dim); background:rgba(53,230,200,.05); }
 .toolchip .t-dot { width:7px; height:7px; border-radius:50%; background:var(--signal); box-shadow:0 0 8px var(--signal);
