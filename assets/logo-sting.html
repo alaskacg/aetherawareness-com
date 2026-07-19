@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether Awareness — logo sting (recordable)</title>
+<meta name="robots" content="noindex">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; background:#000; overflow:hidden; }
+  #stage { position:fixed; inset:0; display:grid; place-items:center; }
+  svg { width:min(46vmin, 520px); overflow:visible; }
+  .ring { fill:none; stroke:#35e6c8; stroke-width:1.2; transform-origin:center; }
+  .dot  { fill:#35e6c8; transform-origin:center; }
+  #word { margin-top:4.5vmin; font:600 clamp(20px,4.2vmin,44px)/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+          letter-spacing:.34em; color:#d6e4ee; text-transform:uppercase; opacity:0; text-align:center; }
+  #word b { color:#35e6c8; font-weight:600; }
+  #tag { margin-top:2vmin; font:400 clamp(11px,1.7vmin,16px)/1 ui-monospace,Menlo,monospace;
+         letter-spacing:.22em; color:#6d8494; text-transform:uppercase; opacity:0; text-align:center; }
+  #hud { position:fixed; left:18px; bottom:14px; font:12px/1.7 ui-monospace,Menlo,monospace; color:#31404d; }
+  #hud b { color:#5b7284; }
+  .rec #hud { display:none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div>
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle class="dot"  id="d0" cx="50" cy="50" r="4.2" opacity="0"/>
+      <circle class="ring" id="r1" cx="50" cy="50" r="20" opacity="0"/>
+      <circle class="ring" id="r2" cx="50" cy="50" r="34" opacity="0"/>
+      <circle class="ring" id="r3" cx="50" cy="50" r="47" opacity="0"/>
+    </svg>
+    <div id="word">Aether <b>Awareness</b></div>
+    <div id="tag">memory · identity · a home you own</div>
+  </div>
+</div>
+<div id="hud">
+  <b>R</b> run with audio &nbsp;·&nbsp; <b>S</b> audio only &nbsp;·&nbsp; <b>F</b> fullscreen &nbsp;·&nbsp; <b>H</b> hide this help<br>
+  record: OBS window/display capture + desktop audio · 6.0 s · hold ~1 s after wordmark settles
+</div>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var rings = [$("r1"), $("r2"), $("r3")], dot = $("d0"), word = $("word"), tag = $("tag");
+
+  /* ---- timeline (ms). Total ≈ 6000: rings draw 0–2600, lock 2600,
+         flare 2600–3200, wordmark 3200–4400, tag 4400–5000, hold to 6000. */
+  function reset() {
+    rings.forEach(function (r) {
+      var c = 2 * Math.PI * r.r.baseVal.value;
+      r.style.transition = "none";
+      r.style.strokeDasharray = c + " " + c;
+      r.style.strokeDashoffset = c;
+      r.style.opacity = "0";
+      r.style.transform = "rotate(-90deg)";
+      r.style.filter = "none";
+    });
+    dot.style.transition = "none";
+    dot.style.opacity = "0"; dot.style.transform = "scale(.4)";
+    [word, tag].forEach(function (e) {
+      e.style.transition = "none"; e.style.opacity = "0";
+      e.style.transform = "translateY(10px)";
+    });
+    void document.body.offsetHeight; /* flush */
+  }
+
+  function run() {
+    reset();
+    rings.forEach(function (r, i) {
+      r.style.transition =
+        "stroke-dashoffset 1.4s cubic-bezier(.6,.05,.2,1) " + (i * 0.42) + "s, opacity .3s linear " + (i * 0.42) + "s";
+      r.style.strokeDashoffset = "0";
+      r.style.opacity = String(1 - i * 0.22);
+    });
+    setTimeout(function () {
+      dot.style.transition = "opacity .18s ease-out, transform .5s cubic-bezier(.2,1.6,.35,1)";
+      dot.style.opacity = "1"; dot.style.transform = "scale(1)";
+      rings.forEach(function (r) {
+        r.style.transition = "filter .45s ease-out";
+        r.style.filter = "drop-shadow(0 0 6px rgba(53,230,200,.85))";
+        setTimeout(function () {
+          r.style.transition = "filter 1.2s ease-in"; r.style.filter = "drop-shadow(0 0 2px rgba(53,230,200,.4))";
+        }, 520);
+      });
+    }, 2600);
+    setTimeout(function () {
+      word.style.transition = "opacity .9s ease-out, transform .9s cubic-bezier(.2,.9,.25,1)";
+      word.style.opacity = "1"; word.style.transform = "translateY(0)";
+    }, 3200);
+    setTimeout(function () {
+      tag.style.transition = "opacity .8s ease-out, transform .8s ease-out";
+      tag.style.opacity = "1"; tag.style.transform = "translateY(0)";
+    }, 4400);
+  }
+
+  /* ---- synthesized audio sting (WebAudio; no assets) ----
+     0.0–2.6s  sub swell 42→58 Hz under the ring draw
+     2.6s      lock: soft chime dyad (D5 + A5) + tick
+     3.2s      air shimmer as the wordmark lands
+     ~5.2s     everything tails out                                     */
+  function sting() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    var ac = new AC();
+    var out = ac.createGain(); out.gain.value = 0.9; out.connect(ac.destination);
+    var t0 = ac.currentTime + 0.05;
+
+    /* sub swell */
+    var sub = ac.createOscillator(), sg = ac.createGain();
+    sub.type = "sine";
+    sub.frequency.setValueAtTime(42, t0);
+    sub.frequency.exponentialRampToValueAtTime(58, t0 + 2.5);
+    sg.gain.setValueAtTime(0.0001, t0);
+    sg.gain.exponentialRampToValueAtTime(0.32, t0 + 1.8);
+    sg.gain.exponentialRampToValueAtTime(0.0001, t0 + 3.4);
+    sub.connect(sg); sg.connect(out); sub.start(t0); sub.stop(t0 + 3.6);
+
+    /* lock chime: D5 587.33 + A5 880 */
+    [587.33, 880].forEach(function (f, i) {
+      var o = ac.createOscillator(), g = ac.createGain();
+      o.type = "triangle"; o.frequency.value = f;
+      var tl = t0 + 2.6 + i * 0.045;
+      g.gain.setValueAtTime(0.0001, tl);
+      g.gain.exponentialRampToValueAtTime(i ? 0.14 : 0.2, tl + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, tl + 2.2);
+      o.connect(g); g.connect(out); o.start(tl); o.stop(tl + 2.4);
+    });
+
+    /* lock tick (filtered noise burst) */
+    var nb = ac.createBuffer(1, ac.sampleRate * 0.06, ac.sampleRate);
+    var ch = nb.getChannelData(0);
+    for (var i = 0; i < ch.length; i++) ch[i] = (Math.random() * 2 - 1) * (1 - i / ch.length);
+    var ns = ac.createBufferSource(); ns.buffer = nb;
+    var nf = ac.createBiquadFilter(); nf.type = "bandpass"; nf.frequency.value = 2400; nf.Q.value = 2.2;
+    var ng = ac.createGain(); ng.gain.value = 0.16;
+    ns.connect(nf); nf.connect(ng); ng.connect(out); ns.start(t0 + 2.6);
+
+    /* wordmark shimmer: slow-attack airy noise */
+    var sb = ac.createBuffer(1, ac.sampleRate * 1.6, ac.sampleRate);
+    var sc = sb.getChannelData(0);
+    for (var j = 0; j < sc.length; j++) sc[j] = (Math.random() * 2 - 1) * 0.5;
+    var ss = ac.createBufferSource(); ss.buffer = sb;
+    var sf = ac.createBiquadFilter(); sf.type = "highpass"; sf.frequency.value = 6200;
+    var sgn = ac.createGain();
+    sgn.gain.setValueAtTime(0.0001, t0 + 3.2);
+    sgn.gain.exponentialRampToValueAtTime(0.05, t0 + 3.7);
+    sgn.gain.exponentialRampToValueAtTime(0.0001, t0 + 4.9);
+    ss.connect(sf); sf.connect(sgn); sgn.connect(out); ss.start(t0 + 3.2);
+  }
+
+  addEventListener("keydown", function (e) {
+    var k = e.key.toLowerCase();
+    if (k === "r") { run(); sting(); }
+    else if (k === "s") { sting(); }
+    else if (k === "f") { (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()); }
+    else if (k === "h") { document.body.classList.toggle("rec"); }
+  });
+  reset();
+})();
+</script>
+</body>
+</html>

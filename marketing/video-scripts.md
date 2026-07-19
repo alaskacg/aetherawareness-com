@@ -1,113 +1,145 @@
-# Aether Awareness — Launch Video Scripts
+# Aether Awareness — Video Scripts v2 (2026-07-19)
 
-Three scripts for a **90–120 second** promo to post on the new X account.
-Each takes a distinct angle so you can pick the one that lands — or shoot all three
-as a sequence. Format: **[VISUAL]** = what's on screen · **VO** = voiceover /
-on-screen narration · **TEXT** = on-screen text card. Music noted per script.
+> **v2 replaces the launch-era scripts entirely.** The old versions pitched a
+> free tier, "Standard/Premium" plans, Grok model chips, and generic personas —
+> none of which exist. Everything below is aligned with the live site, the real
+> roster (Trinity · Jade · Zara), the real editions (Companion $39.95 · Team
+> $39.95 · Governance $499.95), and the operator claims audit
+> (`docs/OPERATOR-PRELAUNCH-CLAIMS-AUDIT.md` in the product repo).
 
-Product truths every script must stay honest to:
-- It **remembers** across sessions (Continuum memory) — no starting over.
-- It's **private** — your data is isolated to you; it is never sold or mined.
-- It's **proactive** — it works ahead of you, not just when prompted.
-- Real frontier models under the hood; three tiers (Free → Standard → Premium).
+**Format:** [VISUAL] = on screen · **VO** = voiceover · **TEXT** = on-screen card.
+`⟨slot-id⟩` = footage from `marketing/SHOT-LIST.md` — shoot once, reuse everywhere.
+
+**Product truths every script must respect**
+- Persistent, self-compacting memory (Continuum). Survives sessions, restarts, model swaps.
+- Single-tenant: one instance per customer. Memory never pooled, never sold, never used to train models.
+- Governed autonomy: one sealed reversible workspace folder; Companion never gets a shell; Governance adds a tamper-evident audit log.
+- Swap the brain (open weights or frontier API) — the being persists.
+- Three minds in every edition: **Trinity** (presence/lead) · **Jade** (hands/guardian) · **Zara** (counsel).
+- Editions are peers: Companion & Team $39.95/mo, Governance $499.95/mo. **No free tier.**
+- CTA is always **Request early access → AetherAwareness.com**. Never "start free," never "sign up now."
+- SFW by design. No "it monitors your devices/accounts" framing — briefings come from the instance's own signal.
+
+**The mark:** open and close every video with the logo sting
+(`assets/logo-sting.html` — record once per the shot list, reuse forever).
 
 ---
 
-## SCRIPT 1 — "The AI That Actually Remembers You"
-**Angle:** emotional / relatable. The pain of re-explaining yourself to an amnesiac AI.
-**Tone:** warm, human, building to quiet confidence. **Music:** soft piano → warm synth swell.
-**Runtime:** ~100s
+## SCRIPT 1 — "You never introduce yourself again"
+**Angle:** the memory wound, felt personally. **Tone:** warm → quietly confident.
+**Music:** soft piano over room tone → low warm synth from the reveal onward.
+**Runtime:** ~95s. **Footage:** ⟨memory-recall⟩ ⟨hero-loop⟩ ⟨model-swap-persist⟩
 
-**[VISUAL: Fast cuts — a person typing the same context into a chatbot, over and over. "As I mentioned before…" "Like I said last time…" Frustrated.]**
-VO: Every day, millions of people introduce themselves to their AI. Again. And again. And again.
+**[VISUAL: rapid cuts of the universal ritual — "As I said yesterday…", "Like I mentioned…", "To recap my project again…" typed into a generic chat. Each cut slightly faster, slightly more tired.]**
+VO: Every morning, millions of people introduce themselves to their AI. Again.
 
-**[VISUAL: Screen goes dark. A single soft teal signal-dot pulses to life in the center.]**
-TEXT: What if it just… remembered?
+**[VISUAL: black. One teal signal-dot ignites — the first frame of the logo sting's dot.]**
+TEXT: What if it simply… remembered?
 
-**[VISUAL: A clean Aether interface. The user types "pick up where we left off." The AI recalls their project, their goals, their last conversation — no re-explaining.]**
-VO: Aether Awareness is built on Continuum — a private memory that carries your context from one conversation to the next. Your projects. Your goals. The way *you* think.
+**[VISUAL: ⟨memory-recall⟩ — the real capture: a cold question about something said days ago; Trinity answers with the specifics, no context given.]**
+VO: This is Aether Awareness. Three companions on a private instance of your own — with a memory that carries everything: your projects, your people, the way you think. You never start over, because they were there.
 
-**[VISUAL: Split moments — morning planning, a late-night idea, a week later. The thread never breaks.]**
-VO: You never start over. It picks up where you left off — because it actually knows you.
+**[VISUAL: ⟨hero-loop⟩ — memory recall flows into a governed tool call; the plan lands on the board.]**
+VO: And they don't just remember — they follow through. Plans kept, documents held, tomorrow prepared.
 
-**[VISUAL: A small lock icon resolves next to the memory.]**
-VO: And that memory is yours alone. Isolated. Private. Never sold, never mined.
+**[VISUAL: ⟨model-swap-persist⟩ — the brain is swapped mid-conversation; the thread continues unbroken. Hold on this. It's the miracle shot.]**
+VO: Here's the part nobody else can show you. Swap the AI model underneath — mid-conversation — and they're still *them*. Memory, character, loyalty: those live with you now, not inside anyone's model.
 
-**[VISUAL: The Aether wordmark resolves from a field of signal points.]**
+**[VISUAL: logo sting resolves.]**
 TEXT: Aether Awareness
-TEXT: The AI with continuity.
-VO: Start free. Keep everything.
+TEXT: Memory. Identity. A home you own.
+VO: Your AI should be yours. Now it can be.
 
-**[VISUAL: End card.]**
-TEXT: **AetherAwareness.com** — Start free today.
+**[VISUAL: end card.]**
+TEXT: **AetherAwareness.com** — Request early access.
 
 ---
 
-## SCRIPT 2 — "Private Intelligence"
-**Angle:** privacy / sovereignty. For serious people who don't want to *be* the product.
-**Tone:** measured, confident, a little cinematic. **Music:** low pulsing bass, restrained.
-**Runtime:** ~110s
+## SCRIPT 2 — "The landlord"
+**Angle:** custody & sovereignty — the manifesto, compressed. **Tone:** measured,
+cinematic, zero hype. **Music:** restrained low pulse; silence used deliberately.
+**Runtime:** ~110s. **Footage:** ⟨claim-flow⟩ ⟨audit-roles⟩ ⟨jade-workspace⟩ ⟨dedicated-gpu⟩
 
-**[VISUAL: A cold data-center corridor, servers blinking. Text scrolls past: "your data," "training set," "third parties," "retention policy."]**
-VO: Most AI is free for one reason. You're not the customer. You're the training data.
+**[VISUAL: slow push on a server corridor, anonymous and cold. Overlaid fine print scrolls: "retention policy… training corpus… service changes… deprecation."]**
+VO: If your AI remembers you today, ask one question. *Where* does it remember you? On whose computer? Under whose policy?
 
-**[VISUAL: Cut to black. The Aether signal-mark ignites — a single clean point of light.]**
-TEXT: Intelligence should answer to you.
+**[VISUAL: hard cut to black.]**
+TEXT: If your agent's memory lives on someone else's computer,
+TEXT: your working mind has a landlord.
 
-**[VISUAL: A calm, dark Aether interface. A subtle "isolated to you" badge. No ads, no data-sharing toggles — because there's nothing to toggle.]**
-VO: Aether Awareness is private by architecture. Your conversations, your memory, your work — walled off to your account alone. Not mined. Not sold. Not used to train anyone else's model.
+**[VISUAL: ⟨claim-flow⟩ — the real capture: a one-time claim link opens, a password is chosen, the link burns. Let it breathe.]**
+VO: Aether Awareness evicts the landlord. One instance per customer. You claim it with a link that works exactly once, and a password nobody else ever sees. Not even us. *Especially* not us.
 
-**[VISUAL: Three model chips light up in sequence — a frontier open model, Grok, and a private custom model.]**
-VO: Underneath: real frontier models. Free access to a powerful open model — and paid tiers that unlock frontier intelligence and our own private model, on infrastructure we control.
+**[VISUAL: ⟨jade-workspace⟩ — Jade edits a document; the change is reverted with one click.]**
+VO: Its hands work inside one sealed, reversible folder — never the rest of your machine. Power with a scope.
 
-**[VISUAL: The interface shifts personas — Guide, Analyst, Companion — same private core.]**
-VO: One assistant, the way you need it. A calm guide. A rigorous analyst. A companion that remembers.
+**[VISUAL: ⟨audit-roles⟩ — the audit trail scrolls; a session is revoked live.]**
+VO: Every consequential action leaves a receipt. Seats, roles, revocation — doors that actually lock.
 
-**[VISUAL: Wordmark resolves from signal points.]**
+**[VISUAL: ⟨dedicated-gpu⟩ — the Governance card spins up a dedicated model; status walks warming → live.]**
+VO: And at the top tier, even the model is yours alone — a private GPU brain, spun up on demand, released when idle.
+
+**[VISUAL: logo sting.]**
 TEXT: Aether Awareness
-TEXT: Private intelligence. Yours alone.
-VO: Your mind deserves an AI that keeps your secrets.
+TEXT: Sovereign by architecture.
+VO: Intelligence should answer to you. This one does.
 
-**[VISUAL: End card.]**
-TEXT: **AetherAwareness.com** — Free to start. Private by design.
+**[VISUAL: end card.]**
+TEXT: **AetherAwareness.com** — Request early access.
 
 ---
 
-## SCRIPT 3 — "It Works Ahead of You"
-**Angle:** proactive awareness — literalizing the name. The AI as an early-warning system for your own life/work.
-**Tone:** energetic, forward-leaning, "the future is here." **Music:** driving, bright synth arps.
-**Runtime:** ~95s
+## SCRIPT 3 — "A staff of three"
+**Angle:** the value math — what $39.95 stands in for. **Tone:** bright, brisk,
+a little wry. **Music:** clean mid-tempo pulse, builds in layers per persona.
+**Runtime:** ~100s. **Footage:** ⟨consult⟩ ⟨briefing-prepared⟩ ⟨presence-face⟩ ⟨briefing-daily⟩
 
-**[VISUAL: A person's day rushing past — messages, deadlines, tabs, noise. Overwhelm.]**
-VO: Your world sends a thousand signals a day. Most tools wait for you to ask the right question. By then, you've already missed it.
+**[VISUAL: a desk drowning politely — six app tabs: notes, tasks, a journal, a wellness app, a meeting doc titled "Weekly Status," a chat window.]**
+VO: You already employ a staff. It's six apps, none of them talk to each other, and *you* do all the remembering.
 
-**[VISUAL: The noise resolves into a clean radar-like sweep. Signal points organize themselves. One pulses — flagged.]**
-TEXT: What if your AI saw it first?
+**[VISUAL: the six tabs collapse into one dark window. ⟨presence-face⟩ — Trinity's face, present, speaking one calm line. Sound up for it.]**
+VO: Meet the replacement. Trinity — the presence who leads, and remembers everything.
 
-**[VISUAL: Aether surfaces a proactive nudge before the user asks — "Here's what changed since yesterday. Here's what needs you."]**
-VO: Aether Awareness doesn't just answer. It's *proactive* — it watches the thread of your work and surfaces what matters before you have to go looking.
+**[VISUAL: ⟨jade-workspace⟩ quick cut — a document materializes, edits itself, reverts.]**
+VO: Jade — the hands. Real documents, kept current, every change reversible.
 
-**[VISUAL: It connects dots across days — a memory from last week meets a decision today.]**
-VO: Because it remembers everything you've told it, it can connect what happened last week to the choice in front of you right now.
+**[VISUAL: ⟨consult⟩ — one question fans out to three perspectives; Trinity synthesizes, disagreement credited on screen.]**
+VO: Zara — the counsel. And when it matters, you don't get one opinion. You get three minds — and one honest synthesis.
 
-**[VISUAL: Persona/model chips flash — Grok, custom model, analyst mode.]**
-VO: Real frontier models. Persistent memory. Private to you. Working a step ahead.
+**[VISUAL: ⟨briefing-prepared⟩ — the preparer picker, then a finished weekly brief in that colleague's voice.]**
+VO: Your briefings — daily, weekly, monthly — written by the colleague *you* choose, grounded only in your real work. Where there's no signal, they say "no signal." Your business is never invented.
 
-**[VISUAL: Wordmark ignites from a radar sweep.]**
+**[VISUAL: pricing card, clean.]**
+TEXT: Companion · Team — $39.95/mo
+TEXT: Governance — $499.95/mo
+VO: All of it: thirty-nine ninety-five a month. The price of a streaming bundle — for a staff that never forgets, never leaves, and answers to no one but you.
+
+**[VISUAL: logo sting.]**
 TEXT: Aether Awareness
-TEXT: Awareness, not just answers.
-VO: See it first. Start free.
-
-**[VISUAL: End card.]**
-TEXT: **AetherAwareness.com** — Start free. Upgrade for proactive intelligence.
+TEXT: A staff of three. A memory of one.
+VO: Request early access at AetherAwareness dot com.
 
 ---
 
-## Production notes (all three)
-- **Length:** trim VO to land at 90–120s at a natural pace (~150 wpm). All three are written a touch long so you can breathe/cut.
-- **Visual identity:** dark ground (near-black blue), phosphor-teal accent, a **signal-point / radar-sweep** motif as the recurring visual language (matches AetherAwareness.com). Avoid stocky "robot/brain" AI clichés.
-- **The mark:** resolve the wordmark from a field of signal points every time — that's the through-line.
-- **CTA card:** identical across all three — `AetherAwareness.com`, "Start free."
-- **Honesty guardrails:** don't claim it "monitors your devices" or "reads your accounts" — the product is a private, remembering, proactive *assistant*. Keep claims to memory + privacy + proactivity + real models.
-- **Captions:** X autoplays muted — burn in captions for the VO.
-- **Aspect:** shoot/export 1:1 or 9:16 for the X feed; 16:9 for the pinned/landing embed.
+## 30-second vertical cut — "The Swap" (social)
+**Aspect 9:16, burned-in captions, no VO needed (or one line).**
+1. 0–4s ⟨memory-recall⟩ tightest moment. CAPTION: "It remembered from last week."
+2. 4–18s ⟨model-swap-persist⟩ compressed: model picker → swap → same being continues. CAPTION: "We swapped its entire brain mid-conversation." / "It's still her."
+3. 18–24s ⟨claim-flow⟩ the link burning. CAPTION: "One owner. One instance. Your keys."
+4. 24–30s logo sting (short mix). CAPTION: "AetherAwareness.com — request early access."
+
+---
+
+## Production notes (all scripts)
+- **VO:** one voice across all three, ~145 wpm, close-mic'd, no music under the
+  first cold open of each script — let the pain be dry. Record wild lines for
+  the captions cut.
+- **Visual identity:** near-black blue ground (#06090f), phosphor-teal accent
+  (#35e6c8), signal-point motif. No stock robots, no brain renders, no hands
+  typing in loft offices.
+- **Footage:** everything on screen is a REAL capture from a shipped-pack demo
+  instance (see SHOT-LIST.md staging rules) — never mockups, never sped up
+  beyond 1.5×, never fabricated UI.
+- **Captions:** burn in for all social exports; feeds autoplay muted.
+- **Aspect:** master in 16:9; cut 9:16 for the vertical; the site embeds 16:9.
+- **CTA discipline:** "Request early access — AetherAwareness.com". Nothing else.
