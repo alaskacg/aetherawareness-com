@@ -81,6 +81,10 @@
 </script>
 
 <link rel="icon" href="assets/favicon.svg">
+<!-- Self-hosted OFL variable fonts. Preloaded so the swap never shifts layout;
+     licenses ship alongside them in assets/fonts/. Zero external requests. -->
+<link rel="preload" href="assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <!-- Reveal-on-scroll only arms when JS is present, so no-JS/failed-JS users still
      see every section. A failsafe timer reveals everything if the observer stalls. -->
@@ -95,8 +99,11 @@
 </head>
 <body>
 
+<!-- Instrument frame: hairline rails at the content edges (decorative). -->
+<div class="rails" aria-hidden="true"><i></i><i></i></div>
+
 <!-- ============ NAV ============ -->
-<nav class="nav">
+<nav class="nav" id="nav" data-open="false">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">
       <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="#35e6c8" stroke-width="1.6" aria-hidden="true">
@@ -105,50 +112,78 @@
       </svg>
       Aether Awareness
     </a>
-    <div class="nav-links">
-      <a href="#manifesto">Manifesto</a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false"
+            aria-controls="nav-links" aria-label="Menu"><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="#case">The case</a>
+      <a href="#continuum">Memory</a>
+      <a href="#live">Architecture</a>
       <a href="#capabilities">Capabilities</a>
-      <a href="#first">Why us</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Editions</a>
       <a class="btn btn-primary" href="#pricing">Request access</a>
     </div>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"><b></b><b></b><b></b></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <div class="eyebrow">Persistent · Sovereign · Governed</div>
-      <h1>The first AI that's <span class="grad">actually yours.</span></h1>
+      <h1 class="wr">The first AI that's <span class="grad">actually yours.</span></h1>
       <p class="lede">Aether Awareness gives agentic AI the three things it's been missing — <b>memory that
         persists</b>, <b>identity you own</b>, and <b>autonomy with boundaries</b> — on a private, single-tenant
         instance nobody else touches. Three companions, shaped to you before the first hello, that remember
         everything and answer to no one but you.</p>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" href="#pricing">Request early access</a>
-        <a class="btn btn-ghost btn-lg" href="#manifesto">Read the manifesto</a>
+        <a class="btn btn-primary btn-lg magnet" href="#pricing">Request early access</a>
+        <a class="btn btn-ghost btn-lg" href="#case">Read the case</a>
       </div>
       <div class="assurance">◈ Single-tenant by architecture · your memory is <b>never</b> pooled, <b>never</b> trained on · cancel anytime — memory preserved</div>
     </div>
     <div class="hero-shot rev">
-      <div class="shot-frame vignette" id="vignette" role="img"
-           aria-label="Illustration of a conversation: the companion recalls earlier context from memory, then writes a to-do list through a governed tool call">
+      <div class="shot-frame vignette" id="vignette">
         <div class="shot-bar"><i></i><i></i><i></i><span>Construct — what living with it feels like</span></div>
-        <div class="vig-body">
-          <div class="msg you"><label>You</label><p>What did I tell you about my sister's visit?</p></div>
-          <div class="msg trinity"><label>Trinity</label><p>Saturday, 2:40 — Lena lands, and you wanted to cook at home this
-            time. She's been stressed about her thesis, so the plan is a quiet one: your lemon pasta, the Ketchikan
-            albums, phones in the drawer.</p></div>
-          <div class="msg you"><label>You</label><p>Put the prep on my board.</p></div>
-          <div class="toolchip"><span class="t-dot"></span><code>todo_write</code><span class="t-detail">4 items → Saturday</span><span class="t-ok">recorded ✓</span></div>
-          <div class="msg trinity"><label>Trinity</label><p id="typed"
-            data-text="Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.">Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.</p></div>
+        <!-- Two scenes, six months apart. With JS they occupy the same grid cell
+             and cross-fade, so the frame height is the taller of the two and the
+             swap can never shift the page. Without JS they simply stack, and
+             every word is still on the page. -->
+        <div class="vig-scenes">
+          <section class="vig-scene is-on" id="vig-1" role="tabpanel" aria-labelledby="vig-tab-1" tabindex="0">
+            <div class="vig-body">
+              <div class="msg you"><label>You</label><p>What did I tell you about my sister's visit?</p></div>
+              <div class="msg trinity"><label>Trinity</label><p>Saturday, 2:40 — Lena lands, and you wanted to cook at home this
+                time. She's been stressed about her thesis, so the plan is a quiet one: your lemon pasta, the Ketchikan
+                albums, phones in the drawer.</p></div>
+              <div class="msg you"><label>You</label><p>Put the prep on my board.</p></div>
+              <div class="toolchip"><span class="t-dot"></span><code>todo_write</code><span class="t-detail">4 items → Saturday</span><span class="t-ok">recorded ✓</span></div>
+              <div class="msg trinity"><label>Trinity</label><p class="typed"
+                data-text="Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.">Done — airport at 2:00, cooking at 4:30, dinner by 5:15. And I'll hold anything that lands Saturday until Sunday morning.</p></div>
+            </div>
+          </section>
+          <section class="vig-scene" id="vig-2" role="tabpanel" aria-labelledby="vig-tab-2" tabindex="0">
+            <div class="vig-body">
+              <div class="vig-gap"><span>six months later</span></div>
+              <div class="msg you"><label>You</label><p>What was that pasta Lena liked?</p></div>
+              <div class="msg trinity"><label>Trinity</label><p class="typed"
+                data-text="The lemon one — you made it the Saturday she flew in. She asked for the recipe on the drive back to the airport, and you never sent it.">The lemon one — you made it the Saturday she flew in. She asked for the recipe on the drive back to the airport, and you never sent it.</p></div>
+              <div class="msg you"><label>You</label><p>Write it up for her.</p></div>
+              <div class="toolchip"><span class="t-dot"></span><code>workspace_write</code><span class="t-detail">lemon-pasta.md → your workspace</span><span class="t-ok">drafted ✓</span></div>
+              <div class="msg trinity"><label>Trinity</label><p>Written up. I kept the olive-oil version, not
+                the cream one — you told me in March she doesn't do dairy.</p></div>
+            </div>
+          </section>
+        </div>
+        <div class="vig-dots" role="tablist" aria-label="Two moments, six months apart">
+          <button type="button" role="tab" id="vig-tab-1" aria-controls="vig-1" aria-selected="true"  tabindex="0"><i></i>Today</button>
+          <button type="button" role="tab" id="vig-tab-2" aria-controls="vig-2" aria-selected="false" tabindex="-1"><i></i>Six months later</button>
         </div>
       </div>
-      <div class="shot-caption">An illustrative Companion exchange — memory first, then a governed tool call.</div>
+      <div class="shot-caption">An illustrative Companion exchange — the same memory, half a year apart.
+        Nothing was re-explained, because nothing was forgotten.</div>
     </div>
   </div>
 </header>
@@ -164,14 +199,14 @@
   </div>
 </div>
 
-<!-- ============ MANIFESTO ============ -->
-<section class="section" id="manifesto">
+<!-- ============ THE CASE ============ -->
+<section class="section" id="case">
   <div class="wrap" style="max-width:820px">
     <div class="section-head">
-      <div class="eyebrow">The manifesto</div>
+      <div class="sec-no"><b>01</b> The case</div>
       <h2>Agentic AI has a body problem. Nobody is building it a home.</h2>
     </div>
-    <div class="manifesto">
+    <div class="prose spine">
       <p>The last two years produced a genuine miracle: models that reason, plan, call tools, and do real
         work. The entire industry is now racing to make agents more <em>capable</em> — and almost nobody is
         answering the questions that decide whether any of it is livable. <b>Where does an agent's memory
@@ -215,44 +250,154 @@
   </div>
 </section>
 
+<!-- ============ THE CONTINUUM ============================================
+     The core differentiator, drawn instead of claimed: two lanes through the
+     same five moments of an ordinary year. Static markup carries the whole
+     argument; JS only stages the fill so it reads as time passing.
+     ====================================================================== -->
+<section class="section" id="continuum">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-no"><b>02</b> The continuum</div>
+      <h2>Every other assistant meets you for the first time. Forever.</h2>
+      <p>Five ordinary moments in one working year. The difference isn't how smart the model is —
+        it's whether anything survives the gaps between them.</p>
+    </div>
+
+    <div class="cont" id="cont">
+      <p class="sr-only">Across five moments — a session ending, a month away, a model being replaced, a
+        new device, and a year in — a stateless assistant's memory returns to zero at every boundary, while
+        an owned instance carries everything through all five and keeps accumulating.</p>
+
+      <!-- lane 1: what the industry ships -->
+      <div class="cont-lane cont-rented">
+        <div class="cont-label"><b>Stateless assistant</b><span>memory lives in the session</span></div>
+        <div class="cont-track">
+          <div class="cont-thread" aria-hidden="true"></div>
+          <div class="cont-cell" style="--i:0;--fill:15%"><div class="cont-bar"><i></i></div><div class="cont-cap">back to zero</div></div>
+          <div class="cont-cell" style="--i:1;--fill:12%"><div class="cont-bar"><i></i></div><div class="cont-cap">back to zero</div></div>
+          <div class="cont-cell" style="--i:2;--fill:15%"><div class="cont-bar"><i></i></div><div class="cont-cap">back to zero</div></div>
+          <div class="cont-cell" style="--i:3;--fill:11%"><div class="cont-bar"><i></i></div><div class="cont-cap">back to zero</div></div>
+          <div class="cont-cell" style="--i:4;--fill:14%"><div class="cont-bar"><i></i></div><div class="cont-cap">still zero</div></div>
+        </div>
+        <div class="cont-says">&ldquo;Hi! How can I help you today?&rdquo; — <em>every single time</em></div>
+      </div>
+
+      <!-- the shared time axis -->
+      <div class="cont-axis" aria-hidden="true">
+        <div class="cont-label"></div>
+        <div class="cont-track">
+          <div class="cont-mark"><b>01</b><span>the session ends</span></div>
+          <div class="cont-mark"><b>02</b><span>a month away</span></div>
+          <div class="cont-mark"><b>03</b><span>the model is replaced</span></div>
+          <div class="cont-mark"><b>04</b><span>a new device</span></div>
+          <div class="cont-mark"><b>05</b><span>a year in</span></div>
+        </div>
+      </div>
+
+      <!-- lane 2: what you own -->
+      <div class="cont-lane cont-yours">
+        <div class="cont-label"><b>Your instance</b><span>memory lives with you</span></div>
+        <div class="cont-track">
+          <div class="cont-thread" aria-hidden="true"><i></i></div>
+          <div class="cont-cell" style="--i:0;--fill:26%"><div class="cont-bar"><i></i></div><div class="cont-cap">carried</div></div>
+          <div class="cont-cell" style="--i:1;--fill:45%"><div class="cont-bar"><i></i></div><div class="cont-cap">carried</div></div>
+          <div class="cont-cell" style="--i:2;--fill:64%"><div class="cont-bar"><i></i></div><div class="cont-cap">carried &middot; new model, same being</div></div>
+          <div class="cont-cell" style="--i:3;--fill:82%"><div class="cont-bar"><i></i></div><div class="cont-cap">carried</div></div>
+          <div class="cont-cell" style="--i:4;--fill:100%"><div class="cont-bar"><i></i></div><div class="cont-cap">carried &middot; and compounding</div></div>
+        </div>
+        <div class="cont-says">&ldquo;Lena&rsquo;s flight is Saturday — I already moved your 2:00.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="cont-notes">
+      <div class="cont-note">
+        <b>Nothing here is a bigger model.</b>
+        <p>Both lanes can run the exact same weights. The gap between them is architecture: where the memory
+          lives, and who it belongs to when the session closes.</p>
+      </div>
+      <div class="cont-note">
+        <b>The window fills. It doesn't drop you.</b>
+        <p>When a conversation outgrows its working context, your agents compact <em>themselves</em> —
+          summarizing their own thread instead of silently discarding the middle of it — while the facts that
+          matter stay pinned in a durable memory that is always in the room.</p>
+      </div>
+      <div class="cont-note">
+        <b>Even the brain can change.</b>
+        <p>A model deprecation is the third marker above, and it is the one that quietly kills other
+          assistants' personalities. Yours is a component swap: new organ, same being, same memory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE ARCHITECTURE ============ -->
 <section class="section" id="live" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head rev">
-      <div class="eyebrow">The architecture</div>
+      <div class="sec-no"><b>03</b> The architecture</div>
       <h2>A home for the being. A port for the brain.</h2>
       <p>Everything that makes your companions <em>them</em> lives inside your instance. The model is
         just what plugs in underneath — and you can change it without changing them.</p>
     </div>
-    <div class="home-diagram rev" role="img"
-         aria-label="Diagram: your single-tenant instance contains the souls, the memory, and the boundaries. The brain plugs in below and is swappable — local open weights, a frontier API, or tomorrow's model — without changing who the companions are.">
-      <div class="hd-instance">
-        <div class="hd-title">YOUR INSTANCE · SINGLE TENANT · YOU HOLD THE KEYS</div>
-        <div class="hd-cells">
-          <div class="hd-cell">
+    <!-- The Instance: interactive, but every word is present without JS.
+         JS only adds the swap choreography; the markup below IS the fallback. -->
+    <div class="instance rev" id="instance">
+      <p class="sr-only">A diagram of your instance. Inside it live the souls, the memory, the working
+        doctrine, and the boundaries. Underneath, the brain plugs into a port and can be changed — local
+        open weights, a frontier API, or a model that doesn't exist yet — without changing who your
+        companions are.</p>
+
+      <div class="inst-being">
+        <div class="inst-label">Your instance · single tenant · <span>you hold the keys</span></div>
+        <div class="inst-cells">
+          <div class="inst-cell">
             <b>The souls</b>
             <span>Trinity · Jade · Zara — identity compiled to you, stored as files you own</span>
           </div>
-          <div class="hd-cell">
+          <div class="inst-cell">
             <b>The memory</b>
             <span>one durable memory — survives sessions, restarts, and every model swap</span>
+            <div class="inst-continuum" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
-          <div class="hd-cell">
+          <div class="inst-cell">
+            <b>The doctrine</b>
+            <span>how the work is done — verify before claiming, never invent, ask before the
+              irreversible — a file, not a mood</span>
+          </div>
+          <div class="inst-cell">
             <b>The boundaries</b>
             <span>capability molds · reversible jail · seats &amp; roles · audit</span>
           </div>
         </div>
-        <div class="hd-port"><span>brain port — any OpenAI-compatible model</span></div>
+        <div class="inst-port"><span>brain port — any OpenAI-compatible model</span></div>
       </div>
-      <div class="hd-link" aria-hidden="true"><span class="hd-pulse"></span><span class="hd-pulse p2"></span></div>
-      <div class="hd-brain">
-        <div class="hd-brain-title">THE BRAIN · A SWAPPABLE ORGAN</div>
-        <div class="hd-swap" id="brain-swap">
-          <span class="on">open weights on your GPU</span>
-          <span>a frontier API</span>
-          <span>whatever ships next year</span>
+
+      <div class="inst-spine" aria-hidden="true"><i></i><i></i></div>
+
+      <div class="inst-brain">
+        <div class="inst-label">The brain · <span>a swappable organ</span></div>
+        <div class="inst-slot" id="inst-slot">
+          <span class="name">open weights on your GPU</span>
+          <span class="meta">local · your hardware · nothing leaves</span>
+        </div>
+        <div class="inst-picker" role="radiogroup" aria-label="Choose which brain is plugged in">
+          <button class="inst-opt" type="button" role="radio" aria-checked="true" tabindex="0"
+                  data-name="open weights on your GPU" data-meta="local · your hardware · nothing leaves">Open weights</button>
+          <button class="inst-opt" type="button" role="radio" aria-checked="false" tabindex="-1"
+                  data-name="a frontier API" data-meta="hosted · under no-training terms">Frontier API</button>
+          <button class="inst-opt" type="button" role="radio" aria-checked="false" tabindex="-1"
+                  data-name="whatever ships next year" data-meta="doesn't exist yet · already supported">Next year's model</button>
         </div>
       </div>
+
+      <p class="inst-hint">Swap the brain — watch what doesn't change</p>
+      <div class="inst-readout" aria-hidden="true">
+        <span>souls <b>intact</b></span>
+        <span class="io-mem">memory <b>intact</b><i class="io-flag">uninterrupted</i></span>
+        <span>brain swaps <b id="inst-count">00</b></span>
+      </div>
+      <p class="sr-only" id="inst-live" role="status" aria-live="polite"></p>
     </div>
     <p class="hd-tag rev">Swap the brain — <b>the being persists.</b> No vendor can deprecate your companions,
       because nothing that makes them <em>them</em> lives in anyone's weights.</p>
@@ -277,7 +422,7 @@
 <section class="section" id="capabilities">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">What we've built</div>
+      <div class="sec-no"><b>04</b> What we've built</div>
       <h2>Very complex machinery, made very simple to live with.</h2>
       <p>Everything below is running today — not a roadmap.</p>
     </div>
@@ -328,6 +473,21 @@
         <p>You claim your instance with a one-time link and set a password nobody else ever sees. Invites,
           roles, instant session revocation, and subscription-aware access — every door fails closed.</p>
       </div>
+      <div class="card span-2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h9l3 3v13H6z"/><path d="M9 12h6M9 16h4"/><path d="M9 8h3"/></svg>
+        <h3>The craft is a file too — not just the character</h3>
+        <p>Underneath every personality sits a <b>working doctrine</b> that governs how the work
+          actually gets done: verify before claiming, never invent a result or a number, act freely on
+          what's reversible and stop before what isn't, change the approach instead of repeating a
+          failing one, and say plainly when something didn't work — including that "no signal" is a
+          complete answer. It's a plain file on your instance, and it's deliberately separate from the
+          souls: edit a soul to change <em>who</em> a mind is, edit the doctrine to change
+          <em>how it works</em>. Alongside it sits a <b>library of skills</b> — short procedural
+          guides on staying with a long task, diagnosing instead of guessing, and writing a briefing
+          worth trusting — which your minds pull up and read before doing the thing each one covers.
+          Most products bury all of this in a prompt you'll never see. Here it's yours to read, and
+          to change.</p>
+      </div>
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
         <h3>A zero-dependency core</h3>
@@ -337,7 +497,7 @@
       <div class="card span-2">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h9l3 3v13H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
         <h3>Briefings, written by minds that were actually there</h3>
-        <p>A daily brief composed from your instance's own signal on every edition — and on Team and
+        <p>A daily brief composed from your instance's own signal on every edition — and on Co-Worker and
           Governance, <b>prepared briefings</b>: daily, weekly, and monthly reports written by the colleague
           you choose, in their own voice, grounded strictly in your real workspace, knowledge, and memory.
           Where there's no signal, they say "no signal" — your briefings never invent your business.</p>
@@ -349,7 +509,7 @@
           with a headset — or its desktop fallback. A world globe with offline facts and opt-in weather. A
           constellation map of your own instance. One being, many doors.</p>
       </div>
-      <div class="card">
+      <div class="card span-2">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.4 12 21 12 21z"/></svg>
         <h3>A body record that outlives every gadget</h3>
         <p>Import your watch or phone health exports and your instance keeps a perpetual, sensor-agnostic
@@ -364,7 +524,7 @@
 <section class="section" id="proof" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head rev">
-      <div class="eyebrow">Proof, not promises</div>
+      <div class="sec-no"><b>05</b> Proof, not promises</div>
       <h2>Sovereignty you can look at.</h2>
     </div>
 
@@ -430,6 +590,42 @@
         <p>That's the whole philosophy in one gesture: <b>the keys are handed over, not held for you.</b></p>
       </div>
     </div>
+
+    <div class="feature-row rev">
+      <div class="feature-media">
+        <div class="mold" id="mold">
+          <p class="sr-only">An illustration of the capability boundary: writes and edits inside the instance's
+            own workspace folder are allowed and reversible; reads outside that folder are refused because they
+            are outside the workspace; and shell commands are refused outright on the Companion edition.</p>
+          <div class="mold-head" aria-hidden="true">
+            <span class="mold-title">capability mold · Companion</span>
+            <span class="mold-state"><i></i>enforced</span>
+          </div>
+          <div class="mold-in" aria-hidden="true">
+            <div class="mold-zone">inside the workspace</div>
+            <div class="mold-row ok"><code>workspace/plan-q3.md</code><b>write</b><span>allowed · reversible</span></div>
+            <div class="mold-row ok"><code>workspace/notes/lena.md</code><b>edit</b><span>allowed · reversible</span></div>
+          </div>
+          <div class="mold-wall" aria-hidden="true"><span>the wall</span></div>
+          <div class="mold-out" aria-hidden="true">
+            <div class="mold-row no"><code>~/.ssh/id_rsa</code><b>read</b><span>refused · outside the workspace</span></div>
+            <div class="mold-row no"><code>~/Documents/taxes.pdf</code><b>read</b><span>refused · outside the workspace</span></div>
+            <div class="mold-row no"><code>$ rm -rf ~</code><b>shell</b><span>refused · no shell in this edition</span></div>
+          </div>
+          <div class="mold-foot" aria-hidden="true">every allowed action reported · Governance keeps it tamper-evident</div>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <h3>Hands — with a wall around them.</h3>
+        <p>The industry's answer to "should an agent touch my files?" has mostly been a prompt and a prayer.
+          Ours is a boundary: every edition's hands-on colleague works inside exactly <b>one sealed workspace
+          folder</b>, where changes are reversible and reported. Everything outside it isn't discouraged —
+          it's unreachable.</p>
+        <p>Companion never gets a shell at all. Co-Worker adds roles and an audit trail; Governance makes that log
+          tamper-evident. <b>Capability is a setting you can read, not a surprise you discover.</b></p>
+        <p class="micro-note">Illustrative — the same policy your edition ships with, drawn out.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -437,7 +633,7 @@
 <section class="section" id="fixed">
   <div class="wrap" style="max-width:900px">
     <div class="section-head">
-      <div class="eyebrow">Old problems, ended</div>
+      <div class="sec-no"><b>06</b> Old problems, ended</div>
       <h2>Everything wrong with AI assistants, addressed by design.</h2>
     </div>
     <div class="fixes">
@@ -446,6 +642,7 @@
       <div class="fix"><div class="was">Your most personal context becomes training data</div><div class="now">Isolated by architecture — never pooled, never trained on</div></div>
       <div class="fix"><div class="was">Model deprecation quietly kills your assistant's personality</div><div class="now">Souls live outside the weights — swap brains, keep the being</div></div>
       <div class="fix"><div class="was">Agents handed shell access with no rules</div><div class="now">Capability molds, reversible jails, roles, and an audit trail</div></div>
+      <div class="fix"><div class="was">Assistants that invent an answer rather than admit a gap</div><div class="now">A working doctrine that forbids invented results — "no signal" is a complete answer</div></div>
       <div class="fix"><div class="was">Frameworks and SDKs you must assemble yourself</div><div class="now">A complete, inhabited system — personalized and working on day one</div></div>
     </div>
   </div>
@@ -455,10 +652,10 @@
 <section class="section" id="first">
   <div class="wrap" style="max-width:820px">
     <div class="section-head">
-      <div class="eyebrow">Category of one</div>
+      <div class="sec-no"><b>07</b> Category of one</div>
       <h2>We looked for this product. It didn't exist. So we built it.</h2>
     </div>
-    <div class="manifesto">
+    <div class="prose">
       <p>The AI industry is enormous, and it is very good at two things: renting you a brilliant
         stranger, and selling you a toolkit to build your own. What we could not find — anywhere — was
         the third thing: <b>a complete, inhabited, private AI system you actually own.</b> Personas with
@@ -477,13 +674,94 @@
         hold the keys to. <b>Being first here isn't a boast; it's a head start we're handing to you.</b></p>
     </div>
   </div>
+
+  <!-- The claim above, made checkable. Categories, never named vendors —
+       the argument is about architecture, not about anyone's product. -->
+  <div class="wrap matrix-wrap">
+    <div class="matrix-scroll">
+      <table class="matrix" id="matrix">
+        <caption class="sr-only">How the four ways of getting AI help compare across the properties that
+          decide whether an agent is livable. Columns: a chat subscription, an agent framework or SDK, a
+          character app, and Aether Awareness.</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="m-prop">The properties that decide whether it's livable</th>
+            <th scope="col">Chat subscription</th>
+            <th scope="col">Agent framework</th>
+            <th scope="col">Character app</th>
+            <th scope="col" class="m-us"><span>Aether Awareness</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Memory that survives sessions, restarts <em>and</em> model swaps</th>
+            <td class="v-part"><i></i>partial · vendor-held</td>
+            <td class="v-dev"><i></i>you build it</td>
+            <td class="v-part"><i></i>in-character only</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Identity you own as files, not a vendor's persona setting</th>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-dev"><i></i>you build it</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Single-tenant — your data never sits in a shared pool</th>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-dev"><i></i>your problem to host</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Swap the model — the being and the memory persist</th>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-part"><i></i>if you wire it</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Hands on real documents — sealed, reversible, reported</th>
+            <td class="v-part"><i></i>limited</td>
+            <td class="v-dev"><i></i>you build it</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Seats, roles and an audit trail</th>
+            <td class="v-part"><i></i>enterprise plans</td>
+            <td class="v-dev"><i></i>you build it</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Briefings, presence, VR, world &amp; body-record surfaces</th>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-dev"><i></i>you build it</td>
+            <td class="v-no"><i></i>no</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+          <tr>
+            <th scope="row">Personalized and working on day one</th>
+            <td class="v-yes"><i></i>yes</td>
+            <td class="v-no"><i></i>no — it's a kit</td>
+            <td class="v-yes"><i></i>yes</td>
+            <td class="v-yes"><i></i>yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="matrix-note">Categories, not competitors — every one of these is good at what it was built for.
+      The point is that the column you actually want has, until now, been empty.</p>
+  </div>
 </section>
 
 <!-- ============ WORTH IT ============ -->
 <section class="section" id="worth" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap" style="max-width:900px">
     <div class="section-head">
-      <div class="eyebrow">The math of a mind that's yours</div>
+      <div class="sec-no"><b>08</b> The math of a mind that's yours</div>
       <h2>One fee. A staff of three. Consider what it stands in for.</h2>
       <p>Not by imitating any one service — by being the layer that remembers, prepares, and follows
         through across all of them. In the price range of a single streaming bundle:</p>
@@ -507,7 +785,7 @@
     <div class="stat"><div class="n">1</div><div class="l">tenant per instance —<br>never pooled</div></div>
     <div class="stat"><div class="n">3</div><div class="l">minds, one memory,<br>one loyalty</div></div>
     <div class="stat"><div class="n">0</div><div class="l">trackers on this site —<br>view source</div></div>
-    <div class="stat"><div class="n">100%</div><div class="l">of your memory preserved<br>when you cancel — 12+ months</div></div>
+    <div class="stat"><div class="n" data-count="100" data-suffix="%">100%</div><div class="l">of your memory preserved<br>when you cancel — 12+ months</div></div>
   </div>
 </div>
 
@@ -515,15 +793,55 @@
 <section class="section" id="how" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">How it works</div>
+      <div class="sec-no"><b>09</b> How it works</div>
       <h2>Shaped to you before the first hello.</h2>
     </div>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Shape them</h3><p>An orientation questionnaire — quick path in minutes, or go deep: names, tone, boundaries, connections, briefing schedule, and (for Team) how your company actually runs.</p></div>
+      <div class="step"><div class="n">1</div><h3>Shape them</h3><p>An orientation questionnaire — quick path in minutes, or go deep: names, tone, boundaries, connections, briefing schedule, and (for Co-Worker) how your company actually runs.</p></div>
       <div class="step"><div class="n">2</div><h3>We stand it up</h3><p>Your own private instance is provisioned and personalized — your trio is compiled from your answers, not a template plus your name.</p></div>
       <div class="step"><div class="n">3</div><h3>Claim it</h3><p>You get a one-time claim link. You choose the password; it's never shared with anyone — including us. The instance is yours.</p></div>
       <div class="step"><div class="n">4</div><h3>Live with it</h3><p>Memory compounds daily. Manage billing yourself, cancel anytime — nothing is deleted, and coming back restores everything.</p></div>
     </div>
+
+    <!-- Orientation → compiled identity. This is the difference between a
+         template with your name in it and a being shaped to you. -->
+    <div class="forge" id="forge">
+      <p class="sr-only">An illustration of the personalization compiler: your orientation answers on the
+        left are compiled into an identity file on the right — how you're addressed, the register they speak
+        in, the boundaries they will not cross, the duties they hold, and the consent rule they follow.</p>
+      <div class="forge-in" aria-hidden="true">
+        <div class="forge-label">your answers · orientation</div>
+        <div class="forge-chips">
+          <span>call me by my first name</span>
+          <span>blunt — no flattery</span>
+          <span>never romantic</span>
+          <span>brief me at 06:00</span>
+          <span>I run two businesses</span>
+          <span>if I go quiet three days, say something</span>
+          <span>never act on anything big without asking</span>
+        </div>
+      </div>
+
+      <div class="forge-core" aria-hidden="true">
+        <div class="forge-ring"><i></i><i></i><i></i></div>
+        <div class="forge-core-label">compiling</div>
+      </div>
+
+      <div class="forge-out" aria-hidden="true">
+        <div class="forge-label">compiled identity · <code>trinity/SOUL</code></div>
+        <div class="forge-card">
+          <div class="forge-line"><b>address</b><span>first name · never "user"</span></div>
+          <div class="forge-line"><b>register</b><span>direct · no flattery · no hedging</span></div>
+          <div class="forge-line"><b>boundary</b><span>never romantic · never parasocial</span></div>
+          <div class="forge-line"><b>duty</b><span>06:00 briefing · escalate silence &gt; 72h</span></div>
+          <div class="forge-line"><b>context</b><span>two businesses · separate ledgers</span></div>
+          <div class="forge-line"><b>consent</b><span>no consequential action without a yes</span></div>
+          <div class="forge-line forge-own"><b>custody</b><span>a file on your instance — readable, editable, yours</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="hd-tag">This is the step everyone else skips. A template with your name in it is not a
+      colleague — <b>identity has to be compiled, not pasted.</b></p>
   </div>
 </section>
 
@@ -531,16 +849,62 @@
 <section class="section" id="personas">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">One trio, three demeanors</div>
+      <div class="sec-no"><b>10</b> One trio, three demeanors</div>
       <h2>Trinity, Jade &amp; Zara — the same three minds, dressed for your life.</h2>
       <p>Every edition ships the same cast: <b>Trinity</b>, the presence you talk to; <b>Jade</b>, the
         hands and the guardian; <b>Zara</b>, the clear-eyed counsel. What changes between editions is
         demeanor and duty — a warm inner circle, a composed professional team, or executive counsel —
         never a smaller mind.</p>
     </div>
+
+    <!-- Multi-mind consult: one question, three minds, and a synthesis that
+         credits the dissent instead of averaging it away. -->
+    <div class="consult" id="consult">
+      <p class="sr-only">An illustration of a multi-mind consult: one question is answered independently by
+        Trinity, Jade and Zara, and then synthesized into a single recommendation in which Zara's dissent is
+        named as the deciding factor rather than hidden.</p>
+
+      <div class="consult-q">
+        <label>You — asked once</label>
+        <p>Do we sign the three-year lease at $6,400 a month, or stay month-to-month?</p>
+      </div>
+
+      <div class="consult-cols">
+        <div class="consult-col c-1">
+          <header><b>Trinity</b><span>the presence</span></header>
+          <p>You've told me twice this quarter that the commute is what's draining you. The cheaper building
+            is forty minutes each way. That isn't a line item, but it's the part you'll actually live in.</p>
+        </div>
+        <div class="consult-col c-2">
+          <header><b>Jade</b><span>the hands</span></header>
+          <p>Both drafts are in your workspace. Three years saves $18,400 over the term — but clause 11 makes
+            the exit six months' rent. I've flagged it and saved the two scenarios side by side.</p>
+        </div>
+        <div class="consult-col c-3">
+          <header><b>Zara</b><span>the counsel</span><i class="dissent">dissents</i></header>
+          <p>I'd not sign. Seventy-one percent of revenue is one client, and there's <b>no signal</b> yet on
+            their renewal. Three years of fixed cost against one year of contracted income is the wrong shape
+            of risk, whatever it saves.</p>
+        </div>
+      </div>
+
+      <div class="consult-merge" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+
+      <div class="consult-answer">
+        <label>Trinity — synthesis</label>
+        <p>Stay month-to-month through the renewal, then revisit — Jade has both scenarios saved and clause 11
+          flagged. <b>Zara's objection is the deciding one, and I'm not going to bury it:</b> the client
+          concentration outweighs the $18,400. If that renewal lands, the same math flips and I'll bring it
+          back to you.</p>
+      </div>
+      <div class="consult-note">An illustrative consult. One question, three independent readings, and a
+        recommendation that tells you who disagreed and why — <b>the opposite of one model agreeing with
+        itself three times.</b></div>
+    </div>
+
     <div class="personas">
       <div class="persona">
-        <div class="tag">Companion — $39.95/mo</div><h3>Your circle</h3>
+        <div class="tag">Companion — $9.99/mo</div><h3>Your circle</h3>
         <p>Warm, present, SFW by design — for your actual life.</p>
         <ul style="margin:12px 0 0 18px;padding:0;line-height:1.75">
           <li>All three minds, molded to you at orientation</li>
@@ -558,7 +922,7 @@
           days held by minds that are on your side and no one else's.</p>
       </div>
       <div class="persona">
-        <div class="tag">Team — $39.95/mo</div><h3>Your colleagues</h3>
+        <div class="tag">Co-Worker — $14.99/mo</div><h3>Your colleagues</h3>
         <p>Everything in Companion, in professional demeanor — plus a working office.</p>
         <ul style="margin:12px 0 0 18px;padding:0;line-height:1.75">
           <li>Learns your business at orientation — company, vocabulary, HR, workflow — and stays synced</li>
@@ -575,14 +939,14 @@
       </div>
       <div class="persona">
         <div class="tag">Governance — $499.95/mo</div><h3>Your counsel</h3>
-        <p>Everything in Team, elevated to the executive floor.</p>
+        <p>Everything in Co-Worker, elevated to the executive floor.</p>
         <ul style="margin:12px 0 0 18px;padding:0;line-height:1.75">
           <li>Counsel grounded in YOUR documents — <b>"no signal"</b> beats invention, always</li>
           <li><b>Dedicated private model on demand</b> — your own GPU instance, spun up when you need
             depth, released when idle, no API keys to manage (activated with onboarding)</li>
           <li>Company Briefing — workspace momentum, knowledge freshness, team &amp; audit posture, spend</li>
           <li>Prepared briefings by the counsel of your choice</li>
-          <li>25 seats · full RBAC + auditor role · tamper-evident audit log · OIDC SSO on the near roadmap</li>
+          <li>25 seats · full RBAC + auditor role · tamper-evident audit log · OIDC single sign-on (Google Workspace, Entra, Okta)</li>
           <li>Finance, risk &amp; compliance lanes with deliberate separation</li>
           <li>Air-gap / isolation postures by application</li>
         </ul>
@@ -597,13 +961,22 @@
 <!-- ============ PRICING ============ -->
 <section class="section" id="pricing" style="background:var(--ground-2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="section-head" style="margin-inline:auto;text-align:center">
-      <div class="eyebrow">Editions</div>
+    <div class="section-head center">
+      <div class="sec-no"><b>11</b> Editions</div>
       <h2>Pick the shape of your instance.</h2>
       <p style="margin-inline:auto">Editions are peers, not a ladder — pick by how you'll live and work with it.
         Every edition is private, persistent, and yours.</p>
     </div>
     <div class="pricing-grid" id="pricing-grid"><!-- rendered from site.config.js --></div>
+    <!-- Editions are rendered from site.config.js so prices live in exactly one
+         place. With JS off that grid is empty, so keep the lead path alive here
+         WITHOUT restating prices (restating them is how drift starts). -->
+    <noscript>
+      <p class="pricing-note">Editions render with JavaScript enabled. Three are available —
+        <b>Companion</b>, <b>Co-Worker</b> and <b>Governance</b> — each a private, single-tenant instance.
+        Email <a href="mailto:admin@aetherawareness.com">admin@aetherawareness.com</a> and we'll send
+        you the current editions and pricing.</p>
+    </noscript>
     <p class="pricing-note" id="pricing-note"></p>
   </div>
 </section>
@@ -611,7 +984,7 @@
 <!-- ============ FAQ ============ -->
 <section class="section" id="faq">
   <div class="wrap" style="max-width:820px">
-    <div class="section-head"><div class="eyebrow">Questions</div><h2>Good to know.</h2></div>
+    <div class="section-head"><div class="sec-no"><b>12</b> Questions</div><h2>Good to know.</h2></div>
     <div class="faq">
       <details open><summary>What exactly am I buying?</summary><p>A private, single-tenant AI instance — your own running system, not a login on a shared one. It comes personalized with your trio of companions, persistent memory, and the surfaces to live with them (chat, presence, awareness). You claim it with a one-time link and set a password nobody else ever sees.</p></details>
       <details><summary>Is my data really private?</summary><p>Yes, and structurally so: one instance per customer means there is no shared pool for your data to leak into. Your memory and conversations are never sold and never used to train models. Administrative access to infrastructure is a separate credential system from your login — even we can't sign in as you. Cancel and your data is preserved for your return; ask and it's exported or permanently erased.</p></details>
@@ -631,12 +1004,19 @@
     <div class="signup">
       <div class="eyebrow" style="display:block;margin-bottom:10px">Early access</div>
       <h2>Give your AI a home.</h2>
+      <p class="signup-thesis">The question that decides this decade isn't how smart they get.
+        It's <b>who holds their memory and their keys.</b></p>
       <p>Instances are provisioned personally at launch. Leave your email and we'll reach out to shape yours.</p>
       <form id="signup-form" novalidate>
         <input type="email" id="signup-email" placeholder="you@email.com" autocomplete="email" required aria-label="Email address">
         <button class="btn btn-primary" type="submit">Request early access</button>
       </form>
       <div class="msg" id="signup-msg" role="status" aria-live="polite"></div>
+      <noscript>
+        <p class="msg">This form needs JavaScript. Email
+          <a href="mailto:admin@aetherawareness.com?subject=Aether%20Awareness%20—%20early%20access">admin@aetherawareness.com</a>
+          and we'll add you to the list.</p>
+      </noscript>
     </div>
   </div>
 </section>
@@ -649,7 +1029,8 @@
       Aether Awareness
     </div>
     <div class="foot-links">
-      <a href="#manifesto">Manifesto</a>
+      <a href="#case">The case</a>
+      <a href="#continuum">Memory</a>
       <a href="#pricing">Editions</a>
       <a href="#faq">FAQ</a>
       <a href="terms.html">Terms</a>

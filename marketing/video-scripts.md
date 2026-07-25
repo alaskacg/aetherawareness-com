@@ -56,7 +56,7 @@ TEXT: **AetherAwareness.com** — Request early access.
 ---
 
 ## SCRIPT 2 — "The landlord"
-**Angle:** custody & sovereignty — the manifesto, compressed. **Tone:** measured,
+**Angle:** custody & sovereignty — the case, compressed. **Tone:** measured,
 cinematic, zero hype. **Music:** restrained low pulse; silence used deliberately.
 **Runtime:** ~110s. **Footage:** ⟨claim-flow⟩ ⟨audit-roles⟩ ⟨jade-workspace⟩ ⟨dedicated-gpu⟩
 

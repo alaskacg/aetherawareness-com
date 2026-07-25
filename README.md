@@ -7,12 +7,12 @@ self-contained (no external requests, no trackers), served by GitHub Pages.
 
 ```
 aetherawareness-com/
-├── index.html          # the page: manifesto, capabilities, editions, FAQ
+├── index.html          # the page: the case, capabilities, editions, FAQ
 ├── terms.html          # Terms of Service
 ├── privacy.html        # Privacy Policy
 ├── site.config.js      # ← EDIT THIS: prices, checkout links, signup endpoint
-├── css/style.css       # dark "signal intelligence" theme
-├── js/main.js          # hero field, pricing render, signup handling
+├── css/style.css       # dark "instrument" design system + the animated illustrations
+├── js/main.js          # scene switching, staged illustrations, pricing render, signup
 ├── assets/             # favicon.svg, og-card (social preview)
 ├── CNAME               # custom domain for GitHub Pages
 └── marketing/
@@ -23,8 +23,10 @@ aetherawareness-com/
 
 Everything you'd routinely change lives in **`site.config.js`**:
 
-1. **Prices** — mirror the product catalog: Companion **$39.95/mo · $399/yr**, Team
-   **$39.95/mo · $399/yr**, Governance **$499.95/mo · $4,999/yr**.
+1. **Prices** — mirror the product catalog: Companion **$9.99/mo · $99.90/yr**,
+   Co-Worker **$14.99/mo · $149.90/yr**, Governance **$499.95/mo · $4,999/yr**.
+   The catalog itself is `aether-awareness/billing/plans.json` — that file is the
+   SSOT; this site mirrors it, so change them together.
 2. **Checkout** — while the billing host is pre-launch every tier uses `action:"signup"`
    (email capture; no lead is lost). When checkout goes live, set `action:"checkout"` and
    `checkout:"https://subscribe.aetherawareness.com/subscribe"` per tier.

@@ -5,7 +5,7 @@
    Nothing else needs to change. Loaded before js/main.js.
 
    Prices mirror the product catalog (aether-awareness/billing/plans.json):
-   Companion $39.95/mo · $399/yr — Team $39.95/mo · $399/yr —
+   Companion $9.99/mo · $99.90/yr — Co-Worker $14.99/mo · $149.90/yr —
    Governance $499.95/mo · $4,999/yr. Change them together.
 
    CHECKOUT: while the billing host is not live yet, every tier uses
@@ -22,7 +22,7 @@ window.AETHER_CONFIG = {
   signupEndpoint: "https://uqfwufprawgqxmhrksxn.supabase.co/functions/v1/early-access",
   contactEmail: "admin@aetherawareness.com",
 
-  // The three editions. Names match checkout exactly (Companion/Team/
+  // The three editions. Names match checkout exactly (Companion/Co-Worker/
   // Governance); Signal/Colleague/Sovereign are the thematic badges.
   // NOTE: "Operator" is reserved for a future restricted tier (contractors /
   // cleared personnel) and must NEVER label a public edition.
@@ -32,7 +32,7 @@ window.AETHER_CONFIG = {
       tierKey: "personal",
       name: "Companion",
       badge: "Signal",
-      price: "$39.95",
+      price: "$9.99",
       cadence: "/ month",
       blurb: "Trinity, Jade &amp; Zara as your own private circle — warm, present, and permanently yours.",
       model: "Your own single-owner instance · 1 seat",
@@ -42,7 +42,7 @@ window.AETHER_CONFIG = {
         "Real follow-through: plans, reminders, documents kept in one sealed workspace folder — never the rest of your machine, never a shell",
         "Daily briefing, living Presence face, VR room, world globe &amp; health record included",
         "Warm and SFW by design — a friend, never a parasocial trap",
-        "Annual: $399/yr (2 months free) · cancel anytime, memory preserved",
+        "Annual: $99.90/yr (2 months free) · cancel anytime, memory preserved",
       ],
       cta: "Request your instance",
       action: "signup",
@@ -51,9 +51,9 @@ window.AETHER_CONFIG = {
     },
     {
       tierKey: "coworker",
-      name: "Team",
+      name: "Co-Worker",
       badge: "Colleague",
-      price: "$39.95",
+      price: "$14.99",
       cadence: "/ month",
       blurb: "The same trio in office demeanor — colleagues who learn your business and carry real work.",
       model: "Private team instance · 5 seats with roles",
@@ -62,8 +62,8 @@ window.AETHER_CONFIG = {
         "<strong>Learns your business at orientation</strong> — company, vocabulary, HR &amp; workflow — and stays synced",
         "<strong>Prepared briefings</strong>: daily, weekly &amp; monthly — written by the colleague YOU choose",
         "5 seats with owner / admin / member / viewer roles, shared memory, audit trail",
-        "Same price as Companion — the difference is demeanor, not a bigger bill",
-        "Professional &amp; SFW by design · Annual: $399/yr (2 months free)",
+        "Five seats and a shared reversible workspace — the office half of the same trio",
+        "Professional &amp; SFW by design · Annual: $149.90/yr (2 months free)",
       ],
       cta: "Request your instance",
       action: "signup",
@@ -82,7 +82,7 @@ window.AETHER_CONFIG = {
         "Counsel grounded in YOUR documents — says <strong>“no signal”</strong> instead of inventing numbers",
         "<strong>Dedicated private model</strong> — your own GPU instance, spun up on demand, released when idle, no API keys to manage · activated with onboarding",
         "Company Briefing + prepared briefings — workspace, knowledge, team, audit posture &amp; spend",
-        "25 seats · full RBAC + auditor role + tamper-evident audit log · OIDC SSO on the near roadmap",
+        "25 seats · full RBAC + auditor role + tamper-evident audit log · <strong>OIDC single sign-on</strong> (Google Workspace, Entra, Okta)",
         "Built for the C-suite &amp; trading desk — sovereign, private, accountable",
         "Annual: $4,999/yr (2 months free) · air-gap / isolation by application",
       ],
