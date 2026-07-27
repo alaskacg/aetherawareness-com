@@ -1116,3 +1116,79 @@ html.js .vig-scene.is-on { opacity:1; visibility:visible; transform:none; }
     @keyframes rail-progress { to { transform:scaleY(1); } }
   }
 }
+
+/* ============================================================================
+   ADDITIONS 2026-07-26 — the world layers, and a brand mark with a pulse.
+   Same house rules: the static markup carries the whole message, motion only
+   stages it, and everything is gated on prefers-reduced-motion or degrades to
+   its finished state.
+   ========================================================================== */
+
+/* ---------- ley-line key: three standings, drawn three ways -------------- */
+.layerdemo .leykey { list-style:none; margin:16px 0 0; padding:0; display:grid; gap:11px; }
+.layerdemo .ley { display:grid; grid-template-columns:120px auto; align-items:center;
+  column-gap:14px; row-gap:2px; }
+.layerdemo .ley b { font-family:var(--mono); font-size:.74rem; letter-spacing:.1em;
+  text-transform:uppercase; }
+.layerdemo .ley span { grid-column:2; color:var(--ink-dim); font-size:.9rem; line-height:1.55; }
+.layerdemo .leyline { grid-row:1 / span 2; width:120px; height:8px; }
+.layerdemo .leyline path { fill:none; stroke-width:2.4; stroke-linecap:round; }
+/* The three treatments. These mirror the product exactly — solid for attested,
+   dashed for claimed, long-dash for a living cultural tradition — so the site
+   is not describing a distinction the software doesn't actually draw. */
+.layerdemo .ley-doc   .leyline path { stroke:#4ade80; }
+.layerdemo .ley-doc   b { color:#4ade80; }
+.layerdemo .ley-claim .leyline path { stroke:#9d6cff; stroke-width:1.8; stroke-dasharray:7 5; }
+.layerdemo .ley-claim b { color:#9d6cff; }
+.layerdemo .ley-cult  .leyline path { stroke:#22d3ee; stroke-width:2.1; stroke-dasharray:17 7; }
+.layerdemo .ley-cult  b { color:#22d3ee; }
+.layerdemo .leyfoot { margin-top:15px; padding-top:13px; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.88rem; }
+
+@media (prefers-reduced-motion:no-preference) {
+  /* Wipe in from the left, once, when the card is first seen.
+     NOT stroke-dashoffset: two of these three strokes are themselves dashed,
+     and offsetting a dashed line only shifts its phase — it never hides it.
+     A scaleX wipe reveals all three identically and leaves each stroke's own
+     pattern (which is the whole point of the component) untouched. */
+  html.js .layerdemo .leyline path { transform:scaleX(0); transform-origin:left center; }
+  html.js .layerdemo.in .ley-doc   .leyline path { animation:leydraw 820ms var(--ease) 120ms forwards; }
+  html.js .layerdemo.in .ley-claim .leyline path { animation:leydraw 820ms var(--ease) 300ms forwards; }
+  html.js .layerdemo.in .ley-cult  .leyline path { animation:leydraw 820ms var(--ease) 480ms forwards; }
+  @keyframes leydraw { to { transform:scaleX(1); } }
+}
+
+/* ---------- brand mark: a slow aperture, awake in the nav ---------------- */
+/* It lives in persistent chrome, so the loop is deliberately slow and shallow;
+   the sharper motion is reserved for hover, where the user asked for it. */
+.brand .mark { overflow:visible; }
+.brand .mark circle { transform-origin:12px 12px; }
+.brand .mark .scan { transform-origin:12px 12px; opacity:0; }
+
+@media (prefers-reduced-motion:no-preference) {
+  .nav .brand .mark circle:nth-of-type(1) { animation:mark-core 5.6s var(--ease-soft) infinite; }
+  .nav .brand .mark circle:nth-of-type(2) {
+    animation:markpulse 1.7s var(--ease) .3s 1, mark-breathe 5.6s var(--ease-soft) 1.7s infinite; }
+  .nav .brand .mark circle:nth-of-type(3) {
+    animation:markpulse 1.7s var(--ease) .55s 1, mark-breathe 5.6s var(--ease-soft) 1.95s infinite; }
+  /* the sweep: a quarter-arc that comes round once per cycle */
+  .nav .brand .mark .scan { animation:mark-scan 5.6s linear 2.2s infinite; }
+
+  @keyframes mark-core   { 0%,100%{ transform:scale(1); } 46%{ transform:scale(.84); } }
+  @keyframes mark-breathe{ 0%,100%{ transform:scale(1); opacity:.9 }
+                           46%{ transform:scale(1.045); opacity:1 } }
+  @keyframes mark-scan   { 0%{ transform:rotate(0deg); opacity:0 }
+                           8%{ opacity:.95 } 60%{ opacity:.55 }
+                           78%,100%{ transform:rotate(360deg); opacity:0 } }
+
+  /* hover/focus: the aperture opens and the sweep speeds up — the mark
+     acknowledges you rather than performing on a timer. */
+  .nav .brand:hover .mark circle:nth-of-type(2),
+  .nav .brand:focus-visible .mark circle:nth-of-type(2) { animation:mark-open 620ms var(--ease) forwards; }
+  .nav .brand:hover .mark circle:nth-of-type(3),
+  .nav .brand:focus-visible .mark circle:nth-of-type(3) { animation:mark-open-wide 620ms var(--ease) forwards; }
+  .nav .brand:hover .mark .scan,
+  .nav .brand:focus-visible .mark .scan { animation:mark-scan 1.5s linear infinite; }
+  @keyframes mark-open      { to { transform:scale(1.12); opacity:1 } }
+  @keyframes mark-open-wide { to { transform:scale(1.2);  opacity:.85 } }
+}

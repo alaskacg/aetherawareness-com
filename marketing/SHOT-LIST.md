@@ -98,10 +98,10 @@ session is maybe 90 minutes including staging.
 - **Duration:** 15–30s.
 - **Notes:** capture at the face's natural window size; don't stretch it.
 
-### `jade-workspace` — governed hands + the revert (P1)
+### `raven-workspace` — governed hands + the revert (P1)
 - **Proves:** real document work AND reversibility — the jail as a feature.
 - **Surface:** Construct + workspace document window (Team demo).
-- **Action:** ① ask Jade to draft "Northlight — Q3 supplier shortlist" →
+- **Action:** ① ask Raven to draft "Northlight — Q3 supplier shortlist" →
   file appears in the workspace pane ② ask for an edit ("add a risks section")
   → visible diff/update ③ **revert that change** through the UI ④ hold 2s on
   the restored doc.
@@ -156,7 +156,7 @@ session is maybe 90 minutes including staging.
 
 ### `audit-roles` (P2)
 - ① seats & roles screen (demo names) ② audit trail scrolling — including the
-  entry from your `jade-workspace` doc edit if same session (receipts of a real
+  entry from your `raven-workspace` doc edit if same session (receipts of a real
   action!) ③ revoke a session live. 30–45s.
 
 ### `dedicated-gpu` — Governance's private brain (P2)

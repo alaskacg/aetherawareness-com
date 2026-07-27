@@ -34,7 +34,7 @@ window.AETHER_CONFIG = {
       badge: "Signal",
       price: "$9.99",
       cadence: "/ month",
-      blurb: "Trinity, Jade &amp; Zara as your own private circle — warm, present, and permanently yours.",
+      blurb: "Trinity, Raven &amp; Zara as your own private circle — warm, present, and permanently yours.",
       model: "Your own single-owner instance · 1 seat",
       features: [
         "The full trio, shaped to <em>you</em> before first hello — tone, boundaries, crisis behavior",
@@ -58,7 +58,7 @@ window.AETHER_CONFIG = {
       blurb: "The same trio in office demeanor — colleagues who learn your business and carry real work.",
       model: "Private team instance · 5 seats with roles",
       features: [
-        "Trinity leads with quiet authority; Jade builds in a <strong>reversible workspace</strong>; Zara weighs the calls",
+        "Trinity leads with quiet authority; Raven builds in a <strong>reversible workspace</strong>; Zara weighs the calls",
         "<strong>Learns your business at orientation</strong> — company, vocabulary, HR &amp; workflow — and stays synced",
         "<strong>Prepared briefings</strong>: daily, weekly &amp; monthly — written by the colleague YOU choose",
         "5 seats with owner / admin / member / viewer roles, shared memory, audit trail",

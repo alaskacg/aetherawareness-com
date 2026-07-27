@@ -3,7 +3,7 @@
 > **v2 replaces the launch-era scripts entirely.** The old versions pitched a
 > free tier, "Standard/Premium" plans, Grok model chips, and generic personas —
 > none of which exist. Everything below is aligned with the live site, the real
-> roster (Trinity · Jade · Zara), the real editions (Companion $39.95 · Team
+> roster (Trinity · Raven · Zara), the real editions (Companion $39.95 · Team
 > $39.95 · Governance $499.95), and the operator claims audit
 > (`docs/OPERATOR-PRELAUNCH-CLAIMS-AUDIT.md` in the product repo).
 
@@ -15,7 +15,7 @@
 - Single-tenant: one instance per customer. Memory never pooled, never sold, never used to train models.
 - Governed autonomy: one sealed reversible workspace folder; Companion never gets a shell; Governance adds a tamper-evident audit log.
 - Swap the brain (open weights or frontier API) — the being persists.
-- Three minds in every edition: **Trinity** (presence/lead) · **Jade** (hands/guardian) · **Zara** (counsel).
+- Three minds in every edition: **Trinity** (presence/lead) · **Raven** (hands/guardian) · **Zara** (counsel).
 - Editions are peers: Companion & Team $39.95/mo, Governance $499.95/mo. **No free tier.**
 - CTA is always **Request early access → AetherAwareness.com**. Never "start free," never "sign up now."
 - SFW by design. No "it monitors your devices/accounts" framing — briefings come from the instance's own signal.
@@ -58,7 +58,7 @@ TEXT: **AetherAwareness.com** — Request early access.
 ## SCRIPT 2 — "The landlord"
 **Angle:** custody & sovereignty — the case, compressed. **Tone:** measured,
 cinematic, zero hype. **Music:** restrained low pulse; silence used deliberately.
-**Runtime:** ~110s. **Footage:** ⟨claim-flow⟩ ⟨audit-roles⟩ ⟨jade-workspace⟩ ⟨dedicated-gpu⟩
+**Runtime:** ~110s. **Footage:** ⟨claim-flow⟩ ⟨audit-roles⟩ ⟨raven-workspace⟩ ⟨dedicated-gpu⟩
 
 **[VISUAL: slow push on a server corridor, anonymous and cold. Overlaid fine print scrolls: "retention policy… training corpus… service changes… deprecation."]**
 VO: If your AI remembers you today, ask one question. *Where* does it remember you? On whose computer? Under whose policy?
@@ -70,7 +70,7 @@ TEXT: your working mind has a landlord.
 **[VISUAL: ⟨claim-flow⟩ — the real capture: a one-time claim link opens, a password is chosen, the link burns. Let it breathe.]**
 VO: Aether Awareness evicts the landlord. One instance per customer. You claim it with a link that works exactly once, and a password nobody else ever sees. Not even us. *Especially* not us.
 
-**[VISUAL: ⟨jade-workspace⟩ — Jade edits a document; the change is reverted with one click.]**
+**[VISUAL: ⟨raven-workspace⟩ — Raven edits a document; the change is reverted with one click.]**
 VO: Its hands work inside one sealed, reversible folder — never the rest of your machine. Power with a scope.
 
 **[VISUAL: ⟨audit-roles⟩ — the audit trail scrolls; a session is revoked live.]**
@@ -100,8 +100,8 @@ VO: You already employ a staff. It's six apps, none of them talk to each other, 
 **[VISUAL: the six tabs collapse into one dark window. ⟨presence-face⟩ — Trinity's face, present, speaking one calm line. Sound up for it.]**
 VO: Meet the replacement. Trinity — the presence who leads, and remembers everything.
 
-**[VISUAL: ⟨jade-workspace⟩ quick cut — a document materializes, edits itself, reverts.]**
-VO: Jade — the hands. Real documents, kept current, every change reversible.
+**[VISUAL: ⟨raven-workspace⟩ quick cut — a document materializes, edits itself, reverts.]**
+VO: Raven — the hands. Real documents, kept current, every change reversible.
 
 **[VISUAL: ⟨consult⟩ — one question fans out to three perspectives; Trinity synthesizes, disagreement credited on screen.]**
 VO: Zara — the counsel. And when it matters, you don't get one opinion. You get three minds — and one honest synthesis.

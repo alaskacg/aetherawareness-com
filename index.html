@@ -46,7 +46,7 @@
     {
       "@type": "Product",
       "name": "Aether Awareness Companion",
-      "description": "A private, single-tenant AI instance for your personal life: Trinity, Jade & Zara shaped to you, permanent memory, daily briefing, presence, VR room, and health record. 1 seat.",
+      "description": "A private, single-tenant AI instance for your personal life: Trinity, Raven & Zara shaped to you, permanent memory, daily briefing, presence, VR room, and health record. 1 seat.",
       "brand": { "@id": "https://aetherawareness.com/#org" },
       "url": "https://aetherawareness.com/#pricing",
       "offers": [
@@ -109,6 +109,11 @@
       <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="#35e6c8" stroke-width="1.6" aria-hidden="true">
         <circle cx="12" cy="12" r="2.5" fill="#35e6c8" stroke="none"/>
         <circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10" opacity=".5"/>
+        <!-- the sweep: a quarter-arc on the outer ring. Purely decorative, and
+             invisible until the animation runs, so a no-motion or no-CSS render
+             is exactly the mark as it was before. -->
+        <path class="scan" d="M12 2a10 10 0 0 1 10 10" stroke="#35e6c8" stroke-width="1.8"
+              stroke-linecap="round"/>
       </svg>
       Aether Awareness
     </a>
@@ -353,7 +358,7 @@
         <div class="inst-cells">
           <div class="inst-cell">
             <b>The souls</b>
-            <span>Trinity · Jade · Zara — identity compiled to you, stored as files you own</span>
+            <span>Trinity · Raven · Zara — identity compiled to you, stored as files you own</span>
           </div>
           <div class="inst-cell">
             <b>The memory</b>
@@ -516,6 +521,88 @@
           body record — trends your agents can see and speak to across years, not app-lifespans. Your data,
           on your instance. (A wellness companion — not a medical device, and never medical advice.)</p>
       </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h6M14 7h6M4 12h10M18 12h2M4 17h4M12 17h8"/><circle cx="12" cy="7" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+        <h3>Your models, on the lanes you choose</h3>
+        <p>A patch bay for intelligence. Register any OpenAI-compatible model — a hosted frontier
+          model, a local one on your own hardware, or both — and assign which one serves which
+          capability. Conversation on one, background work on another. Change your mind whenever
+          you like; nothing is welded in.</p>
+      </div>
+
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h5l2-5 4 10 2-5h5"/></svg>
+        <h3>Two lanes, so the good one stays free</h3>
+        <p>Conversation and finished briefings run on your primary model. The quiet work — digests,
+          compaction, packet prep — runs on a separate background lane. You are never paying frontier
+          prices for housekeeping, and housekeeping never slows down the conversation you're having.</p>
+      </div>
+
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+        <h3>Research that shows its work</h3>
+        <p>Live web search and page retrieval, with the sourcing kept visible. Claims stay tied to what
+          was actually found, inference stays labelled as inference, and thin or conflicting sources get
+          said out loud rather than smoothed over into false confidence.</p>
+      </div>
+
+      <div class="card span-2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z"/></svg>
+        <h3>A world to look at — and a flat one that works with the power out</h3>
+        <p>A 3D globe with real sunlight and a live day/night terminator, and a <b>second, flat map that
+          loads nothing from the internet at all</b> — no mapping service, no tile bill, no telemetry.
+          Both read the same layer catalogue, so a layer can never exist on one and be missing from the
+          other. On them: <b>281 archaeological sites</b> tied to their source records, active
+          excavations including ones first spotted by LiDAR, <b>1,215 volcanoes</b> from the Smithsonian
+          catalogue with eruption histories, plate boundaries, magnetic anomalies and geothermal fields.
+          Click any of it for the full record and where it came from.</p>
+      </div>
+
+      <div class="card span-2 layerdemo" id="leydemo">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><path d="M6.6 7.4 10.4 10.6M13.6 13.4 17.4 16.6"/></svg>
+        <h3>It will draw you a ley line — and tell you it's a claim</h3>
+        <p>Most software would render folklore and surveyed archaeology in the same confident line. Ours
+          refuses to. Every alignment carries a standing, and the standing changes how it is drawn, so
+          you can see the difference from across the room before you read a word.</p>
+        <!-- Code-drawn, not a screenshot: three SVG strokes and their labels.
+             The static markup already states all three standings; the JS-free
+             page loses only the draw-on animation. -->
+        <ul class="leykey" aria-label="How alignments are drawn">
+          <li class="ley ley-doc">
+            <svg class="leyline" viewBox="0 0 120 8" aria-hidden="true"><path d="M2 4h116"/></svg>
+            <b>documented</b><span>A real, archaeologically attested alignment.</span>
+          </li>
+          <li class="ley ley-claim">
+            <svg class="leyline" viewBox="0 0 120 8" aria-hidden="true"><path d="M2 4h116"/></svg>
+            <b>claimed</b><span>Folklore or alternative archaeology. The waypoints are real places; the line between them is the claim.</span>
+          </li>
+          <li class="ley ley-cult">
+            <svg class="leyline" viewBox="0 0 120 8" aria-hidden="true"><path d="M2 4h116"/></svg>
+            <b>cultural</b><span>A living tradition, like a songline. Real to the people who hold it; not a survey claim.</span>
+          </li>
+        </ul>
+        <p class="leyfoot">The same discipline runs through every layer: approximate positions are
+          marked approximate, disputed borders are drawn as claims rather than settled fact, and a layer
+          that needs hardware you don't have says so instead of showing you an empty map as though the
+          world were quiet.</p>
+      </div>
+
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.2"/><ellipse cx="12" cy="12" rx="10" ry="4.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/></svg>
+        <h3>The sky, at true scale</h3>
+        <p>The Sun, the Moon and every planet placed by live ephemeris — true scale, true range, real
+          orbit paths — with surface close-ups from mission imagery and a written curriculum that runs
+          entirely offline. It computes positions; it does not track spacecraft, and it never will.</p>
+      </div>
+
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7H6a3 3 0 0 0 0 6h3M15 7h3a3 3 0 0 1 0 6h-3M9 10h6"/></svg>
+        <h3>Your accounts, your keys, your call</h3>
+        <p>Fourteen connectors ready to plug in — premium voices and speech-to-text, transactional email,
+          Slack and Discord notifications, GitHub, billing. Every one is optional, off until you supply a
+          key, and held on your own instance. Nothing phones home to us to work.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -772,7 +859,7 @@
       <div class="fix"><div class="was">Status meetings and someone paid to compile the weekly report</div><div class="now">Prepared briefings — daily, weekly, monthly — written by the colleague you choose</div></div>
       <div class="fix"><div class="was">An analyst's billable hours for "what does this actually say?"</div><div class="now">Zara — trade-offs weighed, evidence cited, "no signal" when there is none</div></div>
       <div class="fix"><div class="was">Wellness apps that expire your own history when you switch devices</div><div class="now">A perpetual body record on your instance — your trends, across years and gadgets</div></div>
-      <div class="fix"><div class="was">A drawer of scattered drafts, lists, and plans across six tools</div><div class="now">Jade — one sealed workspace where documents are kept, current, and reversible</div></div>
+      <div class="fix"><div class="was">A drawer of scattered drafts, lists, and plans across six tools</div><div class="now">Raven — one sealed workspace where documents are kept, current, and reversible</div></div>
     </div>
     <p class="hd-tag" style="margin-top:26px">The fee buys the staff. The dividend is what they hold:
       your continuity, your preparation, your peace of mind — <b>compounding daily, owned by you.</b></p>
@@ -850,18 +937,19 @@
   <div class="wrap">
     <div class="section-head">
       <div class="sec-no"><b>10</b> One trio, three demeanors</div>
-      <h2>Trinity, Jade &amp; Zara — the same three minds, dressed for your life.</h2>
-      <p>Every edition ships the same cast: <b>Trinity</b>, the presence you talk to; <b>Jade</b>, the
-        hands and the guardian; <b>Zara</b>, the clear-eyed counsel. What changes between editions is
-        demeanor and duty — a warm inner circle, a composed professional team, or executive counsel —
-        never a smaller mind.</p>
+      <h2>Trinity, Raven &amp; Zara — the same three minds, dressed for your life.</h2>
+      <p>Every edition ships the same cast: <b>Trinity</b>, the presence you talk to — she is the warmth
+        and the voice of the living face; <b>Raven</b>, the hands and the guardian — he keeps the thread,
+        does the work, and holds the perimeter; <b>Zara</b>, the clear-eyed counsel — she weighs the call
+        and will tell you when she disagrees. What changes between editions is demeanor and duty — a warm
+        inner circle, a composed professional team, or executive counsel — never a smaller mind.</p>
     </div>
 
     <!-- Multi-mind consult: one question, three minds, and a synthesis that
          credits the dissent instead of averaging it away. -->
     <div class="consult" id="consult">
       <p class="sr-only">An illustration of a multi-mind consult: one question is answered independently by
-        Trinity, Jade and Zara, and then synthesized into a single recommendation in which Zara's dissent is
+        Trinity, Raven and Zara, and then synthesized into a single recommendation in which Zara's dissent is
         named as the deciding factor rather than hidden.</p>
 
       <div class="consult-q">
@@ -876,7 +964,7 @@
             is forty minutes each way. That isn't a line item, but it's the part you'll actually live in.</p>
         </div>
         <div class="consult-col c-2">
-          <header><b>Jade</b><span>the hands</span></header>
+          <header><b>Raven</b><span>the hands</span></header>
           <p>Both drafts are in your workspace. Three years saves $18,400 over the term — but clause 11 makes
             the exit six months' rent. I've flagged it and saved the two scenarios side by side.</p>
         </div>
@@ -892,7 +980,7 @@
 
       <div class="consult-answer">
         <label>Trinity — synthesis</label>
-        <p>Stay month-to-month through the renewal, then revisit — Jade has both scenarios saved and clause 11
+        <p>Stay month-to-month through the renewal, then revisit — Raven has both scenarios saved and clause 11
           flagged. <b>Zara's objection is the deciding one, and I'm not going to bury it:</b> the client
           concentration outweighs the $18,400. If that renewal lands, the same math flips and I'll bring it
           back to you.</p>
@@ -913,7 +1001,9 @@
           <li>Documents kept in one sealed workspace folder</li>
           <li>Daily briefing from your own signal</li>
           <li>Presence face · Construct console · VR room</li>
-          <li>World globe · perpetual health record</li>
+          <li>3D globe + a flat map that works with no internet</li>
+          <li>Heritage &amp; earth-science layers · the sky at true scale</li>
+          <li>Perpetual health record</li>
           <li>Multi-mind consult — three perspectives, one answer</li>
           <li>Voice in the browser; premium voices optional</li>
           <li>Swap the brain anytime — local GPU or hosted API</li>
@@ -926,10 +1016,12 @@
         <p>Everything in Companion, in professional demeanor — plus a working office.</p>
         <ul style="margin:12px 0 0 18px;padding:0;line-height:1.75">
           <li>Learns your business at orientation — company, vocabulary, HR, workflow — and stays synced</li>
-          <li>Trinity leads with quiet authority; Jade executes reversibly; Zara weighs the calls</li>
+          <li>Trinity leads with quiet authority; Raven executes reversibly; Zara weighs the calls</li>
           <li><b>Prepared briefings</b> — daily, weekly &amp; monthly, written by the colleague you choose</li>
           <li>5 seats · owner / admin / member / viewer roles</li>
           <li>Shared workspace with a browsable document window</li>
+          <li>Operational map layers — live aircraft, ocean currents &amp; sea state, maritime,
+            disputed &amp; demarcation lines</li>
           <li>Audit trail of every consequential action</li>
           <li>Same price as Companion — demeanor is the difference</li>
         </ul>
@@ -989,7 +1081,7 @@
       <details open><summary>What exactly am I buying?</summary><p>A private, single-tenant AI instance — your own running system, not a login on a shared one. It comes personalized with your trio of companions, persistent memory, and the surfaces to live with them (chat, presence, awareness). You claim it with a one-time link and set a password nobody else ever sees.</p></details>
       <details><summary>Is my data really private?</summary><p>Yes, and structurally so: one instance per customer means there is no shared pool for your data to leak into. Your memory and conversations are never sold and never used to train models. Administrative access to infrastructure is a separate credential system from your login — even we can't sign in as you. Cancel and your data is preserved for your return; ask and it's exported or permanently erased.</p></details>
       <details><summary>Which AI models power it?</summary><p>Your choice — that's the point. Aether is model-agnostic: it runs on open-weight models on dedicated hardware or frontier models over an API, and you can switch without losing anything. Your companions' memory and character live outside the model, so swapping brains doesn't change who they are.</p></details>
-      <details><summary>Can it access my files or computer?</summary><p>Only inside one sealed folder. Every edition's hands-on colleague (Jade) can keep and edit real documents — but exclusively inside the instance's own workspace folder, with reversible, reported changes. Nothing else on your machine is reachable, and Companion never gets shell access at all. Capability is a configuration you can see, not a surprise.</p></details>
+      <details><summary>Can it access my files or computer?</summary><p>Only inside one sealed folder. Every edition's hands-on colleague (Raven) can keep and edit real documents — but exclusively inside the instance's own workspace folder, with reversible, reported changes. Nothing else on your machine is reachable, and Companion never gets shell access at all. Capability is a configuration you can see, not a surprise.</p></details>
       <details><summary>What happens if I cancel?</summary><p>Chat suspends at the end of your billing period; nothing is deleted. Your memory, personalization, and history are archived for at least twelve months, and resubscribing restores everything exactly as you left it. You can also request a full export or permanent deletion at any time.</p></details>
       <details><summary>Do I need my own AI model or API key?</summary><p>No. Every subscription includes hosted inference at fair-use capacity — your instance works on day one with nothing to configure. If you want more control, you can plug in your own API key or point it at open-weight models on your own GPU at any time, and on Governance a dedicated private GPU model spins up on demand with no keys to manage at all.</p></details>
       <details><summary>Is there really nothing else like this?</summary><p>Pieces of it exist across the industry — memory features, agent frameworks, character apps, dashboard tools. To our knowledge, nobody else ships the whole synthesis: compiled identities, permanent self-compacting memory, governed hands, briefings, presence and VR surfaces, team structure, and single-tenant ownership, working together out of the box. That integration — the months of orchestration and refinement you never have to learn — is the product.</p></details>
@@ -1064,7 +1156,7 @@
     {
       "@type": "Question",
       "name": "Can it access my files or computer?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Only inside one sealed folder. Every edition's hands-on colleague (Jade) can keep and edit real documents — but exclusively inside the instance's own workspace folder, with reversible, reported changes. Nothing else on your machine is reachable, and Companion never gets shell access at all. Capability is a configuration you can see, not a surprise." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Only inside one sealed folder. Every edition's hands-on colleague (Raven) can keep and edit real documents — but exclusively inside the instance's own workspace folder, with reversible, reported changes. Nothing else on your machine is reachable, and Companion never gets shell access at all. Capability is a configuration you can see, not a surprise." }
     },
     {
       "@type": "Question",

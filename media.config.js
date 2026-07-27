@@ -18,7 +18,7 @@ window.AETHER_MEDIA = {
   chapters: [
     { key: "memory",    label: "Memory",    blurb: "Continuum — it remembers, and survives the brain swap." },
     { key: "presence",  label: "Presence",  blurb: "A face, a voice, a room — not a text box." },
-    { key: "hands",     label: "Hands",     blurb: "Jade works — inside one sealed, reversible folder." },
+    { key: "hands",     label: "Hands",     blurb: "Raven works — inside one sealed, reversible folder." },
     { key: "counsel",   label: "Counsel",   blurb: "Briefings and consults, grounded in your real signal." },
     { key: "ownership", label: "Ownership", blurb: "Claim it, hold the keys, audit everything." },
   ],
@@ -55,9 +55,9 @@ window.AETHER_MEDIA = {
       caption: "The constellation map — your own instance, seen from above." },
 
     /* ---- hands ---- */
-    { id: "jade-workspace", chapter: "hands", kind: "video", ambient: true, ready: false,
-      src: "assets/media/jade-workspace.mp4", poster: "assets/media/jade-workspace.jpg",
-      caption: "Jade drafts, edits — then the change is reverted with one click. Power inside a sealed, reversible folder." },
+    { id: "raven-workspace", chapter: "hands", kind: "video", ambient: true, ready: false,
+      src: "assets/media/raven-workspace.mp4", poster: "assets/media/raven-workspace.jpg",
+      caption: "Raven drafts, edits — then the change is reverted with one click. Power inside a sealed, reversible folder." },
     { id: "health-record", chapter: "hands", kind: "video", ambient: true, ready: false,
       src: "assets/media/health-record.mp4", poster: "assets/media/health-record.jpg",
       caption: "A watch export becomes a perpetual body record — trends that outlive every gadget." },
