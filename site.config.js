@@ -6,7 +6,7 @@
 
    Prices mirror the product catalog (aether-awareness/billing/plans.json):
    Companion $9.99/mo · $99.90/yr — Co-Worker $14.99/mo · $149.90/yr —
-   Governance $499.95/mo · $4,999/yr. Change them together.
+   Executive $499.95/mo · $4,999/yr. Change them together.
 
    CHECKOUT: while the billing host is not live yet, every tier uses
    action:"signup" (email capture — no lead is ever lost). When
@@ -23,7 +23,7 @@ window.AETHER_CONFIG = {
   contactEmail: "admin@aetherawareness.com",
 
   // The three editions. Names match checkout exactly (Companion/Co-Worker/
-  // Governance); Signal/Colleague/Sovereign are the thematic badges.
+  // Executive); Signal/Colleague/Sovereign are the thematic badges.
   // NOTE: "Operator" is reserved for a future restricted tier (contractors /
   // cleared personnel) and must NEVER label a public edition.
   // Same trio in every edition — what changes is demeanor and duty.
@@ -74,7 +74,7 @@ window.AETHER_CONFIG = {
     },
     {
       tierKey: "corporate",
-      name: "Governance",
+      name: "Executive",
       badge: "Sovereign",
       price: "$499.95",
       cadence: "/ month",
