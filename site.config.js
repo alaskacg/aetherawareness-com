@@ -5,7 +5,7 @@
    Nothing else needs to change. Loaded before js/main.js.
 
    Prices mirror the product catalog (aether-awareness/billing/plans.json):
-   Personal $9.99/mo · $99.90/yr — Co-Worker $14.99/mo · $149.90/yr —
+   Personal $9.99/mo · $99.90/yr — Colleague $14.99/mo · $149.90/yr —
    Executive $499.95/mo · $4,999/yr. Change them together.
 
    CHECKOUT: while the billing host is not live yet, every tier uses
@@ -22,7 +22,7 @@ window.AETHER_CONFIG = {
   signupEndpoint: "https://uqfwufprawgqxmhrksxn.supabase.co/functions/v1/early-access",
   contactEmail: "admin@aetherawareness.com",
 
-  // The three editions. Names match checkout exactly (Personal/Co-Worker/
+  // The three editions. Names match checkout exactly (Personal/Colleague/
   // Executive); Signal/Colleague/Sovereign are the thematic badges.
   // NOTE: "Operator" is reserved for a future restricted tier (contractors /
   // cleared personnel) and must NEVER label a public edition.
@@ -31,7 +31,6 @@ window.AETHER_CONFIG = {
     {
       tierKey: "personal",
       name: "Personal",
-      badge: "Signal",
       price: "$9.99",
       cadence: "/ month",
       blurb: "Trinity, Raven &amp; Zara as your own private circle — warm, present, and permanently yours.",
@@ -53,8 +52,7 @@ window.AETHER_CONFIG = {
     },
     {
       tierKey: "coworker",
-      name: "Co-Worker",
-      badge: "Colleague",
+      name: "Colleague",
       price: "$14.99",
       cadence: "/ month",
       blurb: "The same trio in office demeanor — colleagues who learn your business and carry real work.",
@@ -75,7 +73,6 @@ window.AETHER_CONFIG = {
     {
       tierKey: "corporate",
       name: "Executive",
-      badge: "Sovereign",
       price: "$499.95",
       cadence: "/ month",
       blurb: "An executive intelligence layer, grounded in your documents, with a private GPU model on demand.",
