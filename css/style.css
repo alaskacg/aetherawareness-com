@@ -254,6 +254,10 @@ h1 { font-weight:600; letter-spacing:-.042em; }
   filter:drop-shadow(0 0 14px rgba(53,230,200,.35)); }
 .card h3 { font-size:1.16rem; margin-bottom:9px; letter-spacing:-.024em; }
 .card p { color:var(--ink-dim); font-size:.945rem; }
+/* Cards were single-paragraph until the curriculum card; consecutive paragraphs
+   had no separation and read as one wall. Only the gap between them is set, so
+   single-paragraph cards are untouched. */
+.card p + p { margin-top:11px; }
 .card.span-2 { grid-column:span 2; }
 @media(max-width:720px){ .card.span-2{ grid-column:span 1; } }
 
@@ -422,6 +426,16 @@ h1 { font-weight:600; letter-spacing:-.042em; }
 .tier:not(.highlight) .btn:hover { border-color:var(--line-2); color:var(--signal); background:rgba(53,230,200,.07); }
 .pricing-note { text-align:center; margin:30px auto 0; max-width:72ch; color:var(--muted); font-size:.86rem;
   line-height:1.75; }
+
+/* The pricing axis. Sits above the grid and reads as a stated commitment rather
+   than a feature — hence the rule down the left edge and the restraint on
+   colour: one accent on the emphasised terms, nothing else competing. */
+.axis { max-width:78ch; margin:0 auto 34px; padding:18px 22px; border-radius:var(--radius);
+  border:1px solid var(--line); border-left:2px solid var(--line-2); background:var(--panel); }
+.axis-line { margin:0 0 8px; font-size:1.06rem; line-height:1.6; color:var(--ink); }
+.axis-line b { color:var(--signal); font-weight:600; }
+.axis-sub { margin:0; font-size:.88rem; line-height:1.75; color:var(--ink-dim); }
+@media (max-width:640px) { .axis { padding:15px 17px; } .axis-line { font-size:.98rem; } }
 
 /* ---------- faq ---------- */
 .faq { display:grid; gap:1px; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
