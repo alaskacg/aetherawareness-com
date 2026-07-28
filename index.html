@@ -57,7 +57,7 @@
     {
       "@type": "Product",
       "name": "Aether Awareness Team",
-      "description": "The same trio in professional demeanor: learns your business at orientation, prepared daily/weekly/monthly briefings, 5 seats with roles, shared memory, audit trail.",
+      "description": "The same trio in professional demeanor: learns your business at orientation, prepared daily/weekly/monthly briefings, a reversible workspace and an audit trail. Single owner, 1 seat.",
       "brand": { "@id": "https://aetherawareness.com/#org" },
       "url": "https://aetherawareness.com/#pricing",
       "offers": [
@@ -68,7 +68,7 @@
     {
       "@type": "Product",
       "name": "Aether Awareness Governance",
-      "description": "An executive intelligence layer grounded in your documents, with a dedicated private GPU model on demand, Company Briefing, 25 seats, full RBAC, and a tamper-evident audit log.",
+      "description": "An executive intelligence layer grounded in your documents, with a dedicated private GPU model on demand, Company Briefing, OIDC single sign-on and a tamper-evident audit log. Single owner, 1 seat.",
       "brand": { "@id": "https://aetherawareness.com/#org" },
       "url": "https://aetherawareness.com/#pricing",
       "offers": [
@@ -372,7 +372,7 @@
           </div>
           <div class="inst-cell">
             <b>The boundaries</b>
-            <span>capability molds · reversible jail · seats &amp; roles · audit</span>
+            <span>capability molds · reversible jail · single-owner auth · audit</span>
           </div>
         </div>
         <div class="inst-port"><span>brain port — any OpenAI-compatible model</span></div>
@@ -474,9 +474,10 @@
       </div>
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 7a4 4 0 1 1-6 3.5V21l3-2 3 2v-6"/></svg>
-        <h3>Real seats, real auth</h3>
-        <p>You claim your instance with a one-time link and set a password nobody else ever sees. Invites,
-          roles, instant session revocation, and subscription-aware access — every door fails closed.</p>
+        <h3>Real auth, one owner</h3>
+        <p>You claim your instance with a one-time link and set a password nobody else ever sees. Instant
+          session revocation, subscription-aware access, and optional sign-in with your corporate
+          identity — every door fails closed. One seat: nobody else is ever in there.</p>
       </div>
       <div class="card span-2">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h9l3 3v13H6z"/><path d="M9 12h6M9 16h4"/><path d="M9 8h3"/></svg>
@@ -647,7 +648,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M17 12v3M21 12v2"/></svg>
               <b>YOUR KEY</b><span>the password only you know</span>
             </div>
-            <div class="plane-grants"><i>opens</i> your companions · your memory · your seats · your billing</div>
+            <div class="plane-grants"><i>opens</i> your companions · your memory · your instance · your billing</div>
           </div>
           <div class="plane-wall"><span>NO CROSSOVER — BY CONSTRUCTION</span></div>
           <div class="plane p-admin">
@@ -839,7 +840,7 @@
             <td class="v-yes"><i></i>yes</td>
           </tr>
           <tr>
-            <th scope="row">Seats, roles and an audit trail</th>
+            <th scope="row">Single-owner auth with an audit trail</th>
             <td class="v-part"><i></i>enterprise plans</td>
             <td class="v-dev"><i></i>you build it</td>
             <td class="v-no"><i></i>no</td>
@@ -1032,6 +1033,7 @@
           <li><b>A written curriculum behind every layer</b> — depth on what you're looking
             at, running entirely offline</li>
           <li>Perpetual health record</li>
+          <li>Audit trail of account events — on your instance, readable by you</li>
           <li>Multi-mind consult — three perspectives, one answer</li>
           <li>Voice in the browser; premium voices optional</li>
           <li>Swap the brain anytime — local GPU or hosted API</li>
@@ -1046,7 +1048,7 @@
           <li>Learns your business at orientation — company, vocabulary, HR, workflow — and stays synced</li>
           <li>Trinity leads with quiet authority; Raven executes reversibly; Zara weighs the calls</li>
           <li><b>Prepared briefings</b> — daily, weekly &amp; monthly, written by the colleague you choose</li>
-          <li>5 seats · owner / admin / member / viewer roles</li>
+          <li><b>One seat, one owner</b> — your own colleague, not a chat room</li>
           <li>Shared workspace with a browsable document window</li>
           <li>Audit trail of every consequential action</li>
           <li>Same price as Companion — demeanor is the difference</li>
@@ -1064,7 +1066,7 @@
             depth, released when idle, no API keys to manage (activated with onboarding)</li>
           <li>Company Briefing — workspace momentum, knowledge freshness, team &amp; audit posture, spend</li>
           <li>Prepared briefings by the counsel of your choice</li>
-          <li>25 seats · full RBAC + auditor role · tamper-evident audit log · OIDC single sign-on (Google Workspace, Entra, Okta)</li>
+          <li>Tamper-evident audit log · OIDC single sign-on (Google Workspace, Entra, Okta) — sign in with corporate identity</li>
           <li>Finance, risk &amp; compliance lanes with deliberate separation</li>
           <li>Air-gap / isolation postures by application</li>
         </ul>
@@ -1089,12 +1091,13 @@
          list: it is what stops a future edition from being differentiated by
          withholding a data layer. Code-drawn, no imagery. -->
     <div class="axis">
-      <p class="axis-line">Editions differ on <b>seats</b>, <b>governance</b> and <b>dedicated
-        compute</b> — never on <b>knowledge of the world</b>.</p>
+      <p class="axis-line">Editions differ on <b>what your instance does</b> — never on <b>knowledge of
+        the world</b>, and never on <b>headcount</b>.</p>
       <p class="axis-sub">The cheapest instance sees the same planet as the most expensive: every
         map layer, every live feed, the sky at true scale, and the full written curriculum. What
-        costs more is what costs more to run — extra seats, audited governance, and a private
-        model of your own. Where a layer needs something only you can supply — an API key, a
+        costs more is what costs more to run — audited governance and a private model of your
+        own. Every edition is one seat, one owner: you are buying a different kind of
+        colleague, not a bigger licence. Where a layer needs something only you can supply — an API key, a
         radio receiver — it asks you for that, at every price, instead of asking you to upgrade.</p>
     </div>
     <div class="pricing-grid" id="pricing-grid"><!-- rendered from site.config.js --></div>
