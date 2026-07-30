@@ -121,14 +121,33 @@
 <nav class="nav" id="nav" data-open="false">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">
-      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="#35e6c8" stroke-width="1.6" aria-hidden="true">
-        <circle cx="12" cy="12" r="2.5" fill="#35e6c8" stroke="none"/>
-        <circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10" opacity=".5"/>
-        <!-- the sweep: a quarter-arc on the outer ring. Purely decorative, and
-             invisible until the animation runs, so a no-motion or no-CSS render
-             is exactly the mark as it was before. -->
-        <path class="scan" d="M12 2a10 10 0 0 1 10 10" stroke="#35e6c8" stroke-width="1.8"
-              stroke-linecap="round"/>
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="eb" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--signal-hi)"/>
+            <stop offset="1" stop-color="var(--signal)"/>
+          </linearGradient>
+          <linearGradient id="ebcore" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--signal-hi)"/>
+            <stop offset=".55" stop-color="var(--signal)"/>
+            <stop offset="1" stop-color="var(--signal-deep)"/>
+          </linearGradient>
+          <clipPath id="hexclip"><path d="M16 1.6 29 9v14L16 30.4 3 23V9Z"/></clipPath>
+        </defs>
+        <!-- the frame -->
+        <path class="m-hex" d="M16 2.6 28 9.3v13.4L16 29.4 4 22.7V9.3Z"
+              fill="none" stroke="url(#eb)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- two flanking blades, then the core shard between them -->
+        <path class="m-blade m-l" d="M10.7 11.9 10.7 20.1" stroke="url(#eb)" stroke-width="2"
+              stroke-linecap="round" opacity=".8"/>
+        <path class="m-blade m-r" d="M21.3 11.9 21.3 20.1" stroke="url(#eb)" stroke-width="2"
+              stroke-linecap="round" opacity=".8"/>
+        <path class="m-core" d="M16 8.4 18.5 16 16 23.6 13.5 16Z" fill="url(#ebcore)"/>
+        <!-- the sweep: a light bar travelling the aperture, clipped to it, so a
+             no-motion or no-CSS render is exactly the static mark -->
+        <g clip-path="url(#hexclip)">
+          <rect class="m-scan" x="2" y="-7" width="28" height="5" fill="url(#eb)" opacity="0"/>
+        </g>
       </svg>
       Aether Awareness
     </a>
@@ -1427,7 +1446,7 @@
 <footer>
   <div class="wrap foot-inner">
     <div class="brand" style="font-size:.95rem">
-      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="#35e6c8" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="2.5" fill="#35e6c8" stroke="none"/><circle cx="12" cy="12" r="6"/></svg>
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="2.5" fill="var(--signal)" stroke="none"/><circle cx="12" cy="12" r="6"/></svg>
       Aether Awareness
     </div>
     <div class="foot-links">

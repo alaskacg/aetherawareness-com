@@ -1,6 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#06090f"/>
-  <circle cx="16" cy="16" r="4" fill="#35e6c8"/>
-  <circle cx="16" cy="16" r="8.5" fill="none" stroke="#35e6c8" stroke-width="1.6"/>
-  <circle cx="16" cy="16" r="13" fill="none" stroke="#35e6c8" stroke-width="1.2" opacity="0.45"/>
+  <defs>
+    <linearGradient id="eb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5590ff"/><stop offset="1" stop-color="#1f6dff"/>
+    </linearGradient>
+    <linearGradient id="ebc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7aa8ff"/><stop offset=".55" stop-color="#1f6dff"/>
+      <stop offset="1" stop-color="#0b4fd6"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#08090c"/>
+  <path d="M16 4.4 26.4 10.2v11.6L16 27.6 5.6 21.8V10.2Z" fill="none" stroke="url(#eb)" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M12 13.2v5.6M20 13.2v5.6" stroke="url(#eb)" stroke-width="1.7" stroke-linecap="round" opacity=".55"/>
+  <path d="M16 9.4 18.3 16 16 22.6 13.7 16Z" fill="url(#ebc)"/>
 </svg>
