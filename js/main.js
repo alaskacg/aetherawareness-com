@@ -484,3 +484,65 @@
     }, { passive: true });
   })();
 })();
+
+
+/* ── Theme toggle ──────────────────────────────────────────────────────────
+   The pre-paint boot in <head> already applied the stored choice; this is only
+   the control. `theme-anim` is added just for the duration of a deliberate
+   switch, so the cross-fade never runs on first paint (which would look like a
+   page that could not decide what colour it was). */
+(function () {
+  var btn = document.getElementById('theme-btn');
+  if (!btn) return;
+  var root = document.documentElement, KEY = 'aether-site-theme';
+  function label() {
+    var light = root.getAttribute('data-theme') === 'light';
+    btn.setAttribute('aria-label', light ? 'Switch to night' : 'Switch to daylight');
+    btn.setAttribute('aria-pressed', light ? 'true' : 'false');
+  }
+  label();
+  btn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.classList.add('theme-anim');
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    label();
+    setTimeout(function () { root.classList.remove('theme-anim'); }, 400);
+  });
+})();
+
+/* ── Capability filter ─────────────────────────────────────────────────────
+   Nineteen domains, three views. The filter is progressive enhancement: with
+   JS off every card is visible and the buttons simply do nothing, which is the
+   correct failure for a page whose job is to be read. */
+(function () {
+  var grid = document.getElementById('cap-grid');
+  if (!grid) return;
+  var btns = [].slice.call(document.querySelectorAll('.cap-f'));
+  var cards = [].slice.call(grid.querySelectorAll('.cap'));
+  var count = document.getElementById('cap-count');
+
+  function apply(filter) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var on = filter === 'all' || c.getAttribute('data-state') === filter;
+      c.hidden = !on;
+      if (on) shown++;
+    });
+    btns.forEach(function (b) {
+      var on = b.getAttribute('data-filter') === filter;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (count) {
+      var live = cards.filter(function (c) { return c.getAttribute('data-state') === 'live'; }).length;
+      count.textContent = filter === 'all'
+        ? shown + ' capabilities · ' + live + ' live today'
+        : shown + ' shown';
+    }
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); });
+  });
+  apply('all');
+})();
